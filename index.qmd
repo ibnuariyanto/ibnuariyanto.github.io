@@ -1,0 +1,49 @@
+---
+title: "Biography"
+
+about: 
+  id: hero-heading
+  template: jolla
+  image: media/headshot.jpg
+  image-shape: round
+  image-width: 17em
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/ibnuariyanto/
+    - icon: github
+      text: GitHub  
+      href: https://github.com/ibnuariyanto
+    - icon: twitter
+      text: X
+      href: https://x.com/ibn07
+    - icon: orcid
+      text: ORCID
+      href: https://orcid.org/my-orcid?orcid=0000-0003-0576-0562
+    - icon: vial
+      text: Sinta
+      href: https://sinta.kemdikbud.go.id/authors/profile/6851566/?view=wos
+    - icon: envelope
+      text: Email
+      href: mailto:ibnu.agus71@ui.ac.id | ibnu.agus01@ui.ac.id 
+---
+
+::: {#hero-heading}
+Ibnu Ariyanto is a lecturer and researcher at Universitas Indonesia. Since March 2023, he has worked as a lecturer and researcher at the Master Program of Biomedical Science, Faculty of Medicine, Universitas Indonesia, in Jakarta. (Department of Microbiology, FM UI).\
+\
+He became interested in infectious immunology studies. He is presently concentrating his study on cellular immunity to viral infections such as HIV and CMV. He is eager to learn more about cellular therapy and future infectious disease treatment options.\
+\
+He is presently employed with UKK PPM LMK (Lab services) as part of the Microbiology Department. In January 2025, he was named the Person in Charge of the Serology Division while simultaneously expanding Genomic Research and Services within the Molecular and Virology Divisions.
+
+## Education
+
+Doctor of Biomedical Science Universitas Indonesia
+
+Master of Biomedical Science Universitas Indonesia
+
+Bachelor Degree of Universitas Gadjah Mada
+
+## Laboratory
+
+Department of Clinical Microbiology, Faculty of Medicine, Universitas Indonesia
+:::

@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: docs
+website:
+  title: "Ibnu Ariyanto"
+  navbar:
+    right:
+      - text: "Home"
+        file: index.qmd
+      - text: "Research"
+        file: research.qmd
+      - href: "https://scholar.google.com/citations?user=X_K_5ewAAAAJ&hl=id&oi=ao"
+        text: Publications
+        target: _blank  # Opens in a new tab
+      - text: "Contact"
+        file: contact.qmd
+  page-footer: 
+    left: "© 2025 Ibnu Ariyanto"
+    right: This website is built with {{< fa heart title="a heart" >}}, [{{< fa brands github title="GitHub octocat logo" >}}](https://github.com/samanthacsik/samanthacsik.github.io){target=_blank}, [{{< fa brands r-project title="R Project" >}}](https://www.r-project.org/about.html){target=_blank} and [Quarto](https://quarto.org/){target=_blank}
+format:
+  html:
+    theme: 
+      light: minty
+      dark: solar
+    css: styles.css

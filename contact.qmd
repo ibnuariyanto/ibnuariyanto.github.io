@@ -10,7 +10,7 @@ format: html
 ```{=html}
 <address>
   <strong>Ibnu Ariyanto</strong><br>
-  Department Microbiology<br>
+  Department of Clinical Microbiology<br>
   Faculty of Medicine, Universitas Indonesia<br>
   Jl. Pegangsaan Timur 16<br>
   Jakarta 10320, Indonesia<br>

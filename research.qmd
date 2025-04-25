@@ -7,7 +7,9 @@ title: "Research"
 
 ### CAR-NK Project
 
-The project is a collaboration study with Prof. Alex Mc Lellan from the Department of Microbiology and Immunology at Otago University, New Zealand. I have gotten a small grant from DIPI to start the project in the Department of Clinical Microbiology, Faculty of Medicine, Universitas Indonesia. My supervisor from UI is dr. Rina la Distia Nora, Sp.M(K)., PhD & Fithriyah, PhD. We will look for the potential role of CAR-NK in TB infections. (ongoing)
+Initial development of artificial antigen-presenting cells (aAPC) for Natural killer cell expansion, the acceleration of the first CAR-NK cells in Indonesia
+The project is a collaboration study with Prof. Alex Mc Lellan from the Department of Microbiology and Immunology at Otago University, New Zealand. I have gotten a small grant from DIPI to start the project in the Department of Clinical Microbiology, Faculty of Medicine, Universitas Indonesia. My supervisor from UI is dr. Rina la Distia Nora, Sp.M(K)., PhD & Fithriyah, PhD.
+(https://dipi.id/awarded-proposal-dipis-small-research-grant-2024/). (ongoing)
 
 ### Immunology of HIV Patients
 
@@ -33,7 +35,7 @@ I am co-supervisor of Clara Imaniar (master Student of Biomedical Science). The 
 
 ### COINCIDE Project (2024-2025)
 
-I am participating in the COINCIDE Project. Working under the Prof. Anis Karuniawati Project, I am collaborating with Soe You Naing - Utrecht University. The project involves microbiology specialist student dr.Lili. (ongoing)
+I am participating in the COINCIDE Project. Working under the Prof. Anis Karuniawati Project, I am collaborating with Soe You Naing - Utrecht University. The project involves microbiology specialist student dr.Lili. (end on April)
 
 ### Vaccine Development (2021-2023)
 
@@ -74,10 +76,6 @@ Kartika AAA, Dewi BE, Ariyanto IA, Sudiro TM. Cassia alata butanol fraction anti
 
 
 Ariyanto IA, Octaviana F, Wardah C, Beti E, Widyaningtyas S, Bela B, et al. Neuropathy among drug resistant HIV Patients treated in Jakarta. J Infect Dev Ctries [Internet]. 2024 Nov 30;18(11):1640–4. Available from: https://scholar.google.com/citations?view_op=view_citation&hl=en&citation_for_view=X_K_5ewAAAAJ:k_IJM867U9cC
-  
-
-
-Ariyanto IA, Octaviana F, Wardah C, Beti E, Widyaningtyas S, Bela B, et al. Neuropathy among drug resistant HIV Patients treated in Jakarta. J Infect Dev Ctries [Internet]. 2024 Nov 30 [cited 2024 Dec 18];18(11):1640–4. Available from: https://jidc.org/index.php/journal/article/view/19756
   
 
 

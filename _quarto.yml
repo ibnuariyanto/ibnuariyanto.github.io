@@ -17,6 +17,9 @@ website:
       - href: "https://liobisa.com/"
         text: Community service
         target: _blank  # Opens in a new tab
+      - href: "https://imunologigoblog.wordpress.com/"
+        text: Blog Imunologi
+        target: _blank  # Opens in a new tab
       - text: "Contact"
         file: contact.qmd
   page-footer: 

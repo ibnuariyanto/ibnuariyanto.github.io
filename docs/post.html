@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Biography – Ibnu Ariyanto</title>
+<title>Courses – Ibnu Ariyanto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,10 +30,13 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-7271f29f9498218151f3120baddb7363.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-226bd0f977fa82dfae4534cac220d79a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
@@ -71,12 +74,70 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -253,7 +314,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -269,7 +330,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./post.html" target="posts.qmd"> 
+    <a class="nav-link active" href="./post.html" target="posts.qmd" aria-current="page"> 
 <span class="menu-text">Courses</span></a>
   </li>  
   <li class="nav-item">
@@ -296,74 +357,72 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RmxvdyUyMEN5dG9tZXRyeQ==">Flow Cytometry <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Rmxvd0pv">FlowJo <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-
-
-
-<div class="quarto-about-jolla">
-  <img src="media/headshot.jpg" class="about-image
-  round " style="height: 17em; width: 17em;">
- <header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Biography</h1>
+<h1 class="title">Courses</h1>
 </div>
+
+
+
 <div class="quarto-title-meta">
+
+    
+  
+    
   </div>
-</header><div id="hero-heading">
-<p>Ibnu Ariyanto is a lecturer and researcher at Universitas Indonesia. Since March 2023, he has worked as a lecturer and researcher at the Master Program of Biomedical Science, Faculty of Medicine, Universitas Indonesia, in Jakarta. (Department of Microbiology, FM UI).<br>
-<br>
-He became interested in infectious immunology studies. He is presently concentrating his study on cellular immunity to viral infections such as HIV and CMV. He is eager to learn more about cellular therapy and future infectious disease treatment options.<br>
-<br>
-He is presently employed with UKK PPM LMK (Lab services) as part of the Microbiology Department. In January 2025, he was named the Person in Charge of the Serology Division while simultaneously expanding Genomic Research and Services within the Molecular and Virology Divisions.</p>
-<section id="education" class="level2">
-<h2 data-anchor-id="education">Education</h2>
-<p>Doctor of Biomedical Science Universitas Indonesia</p>
-<p>Master of Biomedical Science Universitas Indonesia</p>
-<p>Bachelor Degree of Universitas Gadjah Mada</p>
-</section>
-<section id="laboratory" class="level2">
-<h2 data-anchor-id="laboratory">Laboratory</h2>
-<p>Department of Clinical Microbiology, Faculty of Medicine, Universitas Indonesia</p>
-</section>
-</div> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="https://www.linkedin.com/in/ibnuariyanto/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/ibnuariyanto" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">GitHub</span>
-  </a>
-  <a href="https://x.com/ibn07" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">X</span>
-  </a>
-  <a href="https://orcid.org/my-orcid?orcid=0000-0003-0576-0562" class="about-link" rel="" target="">
-    <i class="bi bi-orcid"></i>
-     <span class="about-link-text">ORCID</span>
-  </a>
-  <a href="https://sinta.kemdikbud.go.id/authors/profile/6851566/?view=wos" class="about-link" rel="" target="">
-    <i class="bi bi-vial"></i>
-     <span class="about-link-text">Sinta</span>
-  </a>
-  <a href="mailto:ibnu.agus71@ui.ac.id | ibnu.agus01@ui.ac.id" class="about-link" rel="" target="">
-    <i class="bi bi-envelope"></i>
-     <span class="about-link-text">Email</span>
-  </a>
+  
+
+
+</header>
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="RmxvdyUyMEN5dG9tZXRyeSUyQ0Zsb3dKbw==" data-listing-date-sort="1652979600000" data-listing-file-modified-sort="1747764886761" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="760">
+<a href="./post/2025-05-20-Flow-cytometry/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./post/2025-05-20-Flow-cytometry/preview-image.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Flow Cytometry Workshop in Bahasa
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RmxvdyUyMEN5dG9tZXRyeQ=='); return false;">Flow Cytometry</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Rmxvd0pv'); return false;">FlowJo</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>FlowJo untuk Analisis Imunaktivasi Sel T: Instalasi, Gating, dan Analisis Lanjutan</p>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Ibnu Ariyanto
+</div>
+<div class="listing-date">
+May 20, 2022
 </div>
 </div>
-
-
-
-
-
-</main> <!-- /main -->
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -379,6 +438,13 @@ He is presently employed with UKK PPM LMK (Lab services) as part of the Microbio
       window.document.body.appendChild(a);
     }
     window.setColorSchemeToggle(window.hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     

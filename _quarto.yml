@@ -9,11 +9,14 @@ website:
         file: index.qmd
       - text: "Research"
         file: research.qmd
-      - text: "CMV research in ASD Children"
+      - text: "CASDI"
         file: "https://www.peduliasd.id/casdi/riset"
       - href: "https://scholar.google.com/citations?user=X_K_5ewAAAAJ&hl=id&oi=ao"
         text: Publications
         target: _blank  # Opens in a new tab
+      - href: "post.qmd"
+        text: Courses
+        target: posts.qmd   # Opens in a new tab
       - href: "https://liobisa.com/"
         text: Community service
         target: _blank  # Opens in a new tab

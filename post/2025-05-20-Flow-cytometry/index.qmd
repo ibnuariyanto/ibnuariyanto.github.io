@@ -67,6 +67,10 @@ draft: false # setting this to `true` will prevent your post from appearing on y
     
     - Latihan impor data sampel (misal: data sel T CD3+/CD4+/CD8+).
     - Eksplorasi fitur dasar antarmuka.
+    
+    Video panduan
+    
+    {{< video https://www.youtube.com/embed/oKAMh4r_YHE >}}
 
 ---
 
@@ -78,11 +82,11 @@ draft: false # setting this to `true` will prevent your post from appearing on y
     - **Hierarki gating**: debris → single cells → lymphocytes → CD3+ → CD4+/CD8+.
     - Penggunaan **Polygon**, **Rectangle**, dan **Ellipse Tool**.
 2. **Overlay Histogram/Plot**:
-    - Membandingkan ekspresi marker (misal: CD69+,IFG gamma, IL-2 sebelum/sesudah aktivasi).
+    - Membandingkan ekspresi marker (misal: CD69+,IFN-gamma, IL-2 DMSO vs Spike Protein).
     - Teknik overlay menggunakan *Drag-and-Drop*.
 3. **Batch Analysis**:
     - Analisis data multi-sampel sekaligus.
-    - Penerapan template gating ke seluruh sampel.
+    - Penerapan template gating ke seluruh sampel. 
 4. **Export Data ke Excel**:
     - Ekstrak statistik (MFI, frekuensi populasi).
     - Ekspor tabel sebagai *.csv* atau *.xlsx*.
@@ -91,10 +95,14 @@ draft: false # setting this to `true` will prevent your post from appearing on y
     
     - Studi kasus: Analisis aktivasi sel T (misal: IFN-γ+ setelah stimulasi).
     - Praktik gating, overlay, dan analisis batch.
+    
+    Video panduan
+    
+    {{< video https://www.youtube.com/embed/RC97XFZS03g >}}
 
 ---
 
-### **Modul 4: Studi Kasus dan Simulasi**
+### **Modul 4: Studi Kasus dan Simulasi - Eksplorasi Mandiri**
 
 **Durasi**: 1 jam
 
@@ -102,8 +110,10 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 
 1. Analisis data imunaktivasi sel T (contoh dataset disediakan).
 2. Interpretasi hasil:
-    - Frekuensi sel T teraktivasi (CD25+/CD69+).
-    - Perbandingan antar kelompok (stimulasi vs kontrol).**Aktivitas**:
+    - Frekuensi sel T teraktivasi (CD25+/CD69+;Sub-Populasi sel T;HLA-DR/CD38+).
+    - Eksplorasi sel T regulator atau unconventional T cells
+    - Perbandingan antar kelompok (stimulasi vs kontrol).
+**Aktivitas**:
 - Peserta bekerja mandiri dengan dataset.
 - Presentasi hasil dan diskusi kelompok.
 

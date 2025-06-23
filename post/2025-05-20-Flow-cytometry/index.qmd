@@ -37,6 +37,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 1. Unduh FlowJo dari situs resmi ([https://www.flowjo.com](https://www.flowjo.com/)).
     - Memilih versi yang sesuai (free trial/berlisensi).
 2. Persyaratan sistem (OS: Windows/macOS, RAM, storage).
+    - Digunakan flowjo versi v.10.8
 3. Langkah aktivasi online (kunci lisensi atau akun FlowJo).
     
     [mendapatkan free-trial key](https://www.flowjo.com/flowjo/free-trial)

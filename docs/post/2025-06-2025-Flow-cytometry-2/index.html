@@ -8,9 +8,9 @@
 
 <meta name="author" content="Ibnu Ariyanto">
 <meta name="dcterms.date" content="2025-06-23">
-<meta name="description" content="Instalasi Perplexica pada Windows">
+<meta name="description" content="Analisis Flow Cytometry sel T CD8 dan sel Natural Killer">
 
-<title>Panduan Instalasi perplexica: alternatif versi open-source untuk perplexity – Ibnu Ariyanto</title>
+<title>Analisis Flow Cytometry untuk sel T CD8 dan sel NK – Ibnu Ariyanto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -107,9 +73,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -176,16 +139,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Panduan Instalasi perplexica: alternatif versi open-source untuk perplexity</h1>
+      <h1 class="title">Analisis Flow Cytometry untuk sel T CD8 dan sel NK</h1>
                   <div>
         <div class="description">
-          Instalasi Perplexica pada Windows
+          Analisis Flow Cytometry sel T CD8 dan sel Natural Killer
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">Open source</div>
-                <div class="quarto-category">Ollama</div>
-                <div class="quarto-category">AI</div>
+                <div class="quarto-category">Flow Cytometry</div>
+                <div class="quarto-category">FlowJo</div>
               </div>
                   </div>
   </div>
@@ -229,139 +191,254 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="pendahuluan" class="level2">
-<h2 class="anchored" data-anchor-id="pendahuluan">Pendahuluan</h2>
-<p>Berikut adalah panduan instalasi <strong>perplexica</strong>, sebuah mesin pencari berbasis AI open-source yang dapat dijalankan secara lokal. Panduan ini mengacu pada informasi resmi dari repositori GitHub Perplexica dan sumber terkait, serta disusun untuk memudahkan pengguna dalam proses instalasi.</p>
+<section id="penggunaan-flowjo-untuk-analisis-flow-cytometry" class="level1">
+<h1>Penggunaan FlowJo Untuk Analisis Flow Cytometry</h1>
+<section id="judul-pelatihan" class="level3">
+<h3 class="anchored" data-anchor-id="judul-pelatihan"><strong>Judul Pelatihan</strong></h3>
+<p><strong>FlowJo untuk Analisis Imunaktivasi Sel T: Instalasi, Gating, dan Analisis Lanjutan</strong></p>
 </section>
-<section id="prasyarat" class="level2">
-<h2 class="anchored" data-anchor-id="prasyarat">Prasyarat</h2>
-<p>Sebelum memulai, pastikan Anda memiliki:</p>
+<section id="tujuan-pelatihan" class="level3">
+<h3 class="anchored" data-anchor-id="tujuan-pelatihan"><strong>Tujuan Pelatihan</strong></h3>
 <ol type="1">
-<li><strong>Docker</strong> dan <strong>Docker Compose</strong> terinstal di sistem Anda (Linux, Windows, atau Mac).</li>
-<li><strong>Ollama</strong> (opsional, untuk menjalankan model bahasa lokal seperti Llama3.1). Jika Anda ingin menggunakan model lokal, pastikan Ollama terinstal.</li>
-<li><strong>Node.js</strong> dan <strong>npm</strong> (jika Anda ingin menjalankan Perplexica tanpa Docker).</li>
-<li>Koneksi internet untuk mengunduh dependensi dan model.</li>
-<li>Spesifikasi perangkat:
+<li>Peserta mampu menginstal dan mengaktivasi FlowJo secara mandiri.</li>
+<li>Peserta memahami antarmuka FlowJo dan fitur dasarnya.</li>
+<li>Peserta terampil dalam teknik gating, overlay, analisis batch, dan ekspor data ke Excel untuk analisis sel T CD8 dan sel NK.</li>
+</ol>
+<hr>
+</section>
+<section id="rincian-silabus" class="level3">
+<h3 class="anchored" data-anchor-id="rincian-silabus"><strong>Rincian Silabus</strong></h3>
+</section>
+<section id="modul-1-instalasi-dan-aktivasi-flowjo" class="level3">
+<h3 class="anchored" data-anchor-id="modul-1-instalasi-dan-aktivasi-flowjo"><strong>Modul 1: Instalasi dan Aktivasi FlowJo</strong></h3>
+<p><strong>Materi</strong>:</p>
+<ol type="1">
+<li><p>Unduh FlowJo dari situs resmi (<a href="https://www.flowjo.com/">https://www.flowjo.com</a>).</p>
 <ul>
-<li>RAM minimal 8GB (disarankan 16GB untuk performa optimal).</li>
-<li>GPU (opsional, untuk mempercepat pemrosesan model lokal).</li>
+<li>Memilih versi yang sesuai (free trial/berlisensi).</li>
+<li>Install FLOWJO versi 10</li>
+</ul></li>
+<li><p>Persyaratan sistem (OS: Windows/macOS, RAM, storage).</p></li>
+<li><p>Langkah aktivasi online (kunci lisensi atau akun FlowJo).</p>
+<p><a href="https://www.flowjo.com/flowjo/free-trial">mendapatkan free-trial key</a></p></li>
+<li><p>Troubleshoot instalasi (error umum dan solusi).</p>
+<p><strong>Aktivitas</strong>:</p>
+<ul>
+<li>Demo instalasi oleh instruktur.</li>
+<li>Peserta melakukan instalasi dan aktivasi mandiri.</li>
 </ul></li>
 </ol>
+<hr>
 </section>
-<section id="langkah-langkah-instalasi" class="level2">
-<h2 class="anchored" data-anchor-id="langkah-langkah-instalasi">Langkah-langkah Instalasi</h2>
-<section id="klon-repositori-perplexica" class="level3">
-<h3 class="anchored" data-anchor-id="klon-repositori-perplexica">1. Klon Repositori Perplexica</h3>
-<p>Buka terminal dan jalankan perintah berikut untuk mengunduh kode sumber Perplexica dari GitHub:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/ItzCrazyKns/Perplexica.git</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Perplexica</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="instalasi-menggunakan-docker-disarankan" class="level3">
-<h3 class="anchored" data-anchor-id="instalasi-menggunakan-docker-disarankan">2. Instalasi Menggunakan Docker (Disarankan)</h3>
-<p>Docker adalah cara termudah untuk menjalankan Perplexica karena semua dependensi dikelola secara otomatis.</p>
+<section id="modul-2-pengenalan-antarmuka-flowjo" class="level3">
+<h3 class="anchored" data-anchor-id="modul-2-pengenalan-antarmuka-flowjo"><strong>Modul 2: Pengenalan Antarmuka FlowJo</strong></h3>
+<p><strong>Materi</strong>:</p>
 <ol type="1">
-<li><strong>Konfigurasi File Konfigurasi</strong>
+<li><p>Layout workspace FlowJo:</p>
 <ul>
-<li><p>Di dalam direktori Perplexica, cari file sample.config.toml dan salin ke config.toml:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> sample.config.toml config.toml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Buka config.toml dengan editor teks (misalnya, nano config.toml) dan sesuaikan pengaturan:</p>
-<ul>
-<li><strong>Ollama API URL</strong>: Jika menggunakan Ollama, masukkan URL seperti http://host.docker.internal:11434 (port default Ollama). Jika Ollama diinstal di port lain, sesuaikan nomor portnya.</li>
-<li><strong>Model LLM</strong>: Tentukan model yang ingin digunakan, misalnya llama3.1:8b-instruct-q6_K untuk model chat dan nomic-embed-text:137m-v1.5-fp16 untuk embedding.</li>
+<li><strong>Sample Manager</strong>: mengimpor data FCS.</li>
+<li><strong>Graphical Editor</strong>: visualisasi plot.</li>
+<li><strong>Table Editor</strong>: statistik populasi sel.</li>
 </ul></li>
-</ul></li>
-<li><strong>Jalankan Docker Compose</strong>
+<li><p>Impor data flow cytometry (format FCS).</p>
 <ul>
-<li><p>Dari direktori Perplexica, jalankan:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker-compose</span> up <span class="at">-d</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Perintah ini akan mengunduh image Docker untuk SearxNG (mesin pencari meta), backend, dan frontend Perplexica, lalu menjalankan tiga kontainer. Proses ini mungkin memakan waktu beberapa menit tergantung kecepatan internet.</p></li>
+<li><strong>Download data FCS</strong> <a href="https://drive.google.com/drive/folders/1kxribYOF4vB9nPilxtqaRQeTQYzPkwsx?usp=sharing">file latihan analisis</a></li>
 </ul></li>
-<li><strong>Akses Perplexica</strong>
+<li><p>Navigasi dasar: zoom, pan, adjust axis (lin/log).</p></li>
+<li><p>Penyimpanan workspace (<em>.wsp</em>).</p>
+<p><strong>Aktivitas</strong>:</p>
 <ul>
-<li>Setelah kontainer berjalan, buka browser dan akses http://localhost:3000.</li>
-<li>Untuk mengatur model Ollama, klik ikon <strong>Settings</strong> (roda gigi di kiri bawah) dan pilih model chat serta embedding yang diinginkan.</li>
+<li>Latihan impor data sampel (misal: data sel T CD3+/CD4+/CD8+).</li>
+<li>Eksplorasi fitur dasar antarmuka.</li>
+</ul>
+<p>Video panduan</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/oKAMh4r_YHE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div></li>
+</ol>
+<hr>
+</section>
+<section id="modul-3-teknik-gating-untuk-aktivasi-imun-sel-t-cd8-dan-cd8" class="level3">
+<h3 class="anchored" data-anchor-id="modul-3-teknik-gating-untuk-aktivasi-imun-sel-t-cd8-dan-cd8"><strong>Modul 3: Teknik Gating untuk Aktivasi Imun Sel T CD8 dan CD8</strong></h3>
+<p><strong>Materi</strong>:</p>
+<ol type="1">
+<li><p>Strategi gating manual:</p>
+<ul>
+<li><strong>Hierarki gating</strong>: debris → single cells → lymphocytes → CD3+ → CD4+/CD8+.</li>
+<li>Penggunaan <strong>Polygon</strong>, <strong>Rectangle</strong>, dan <strong>Ellipse Tool</strong>.</li>
+</ul></li>
+<li><p><strong>Overlay Histogram/Plot</strong>:</p>
+<ul>
+<li>Membandingkan ekspresi marker (misal: CD69+,IFN-gamma, IL-2 DMSO vs Spike Protein).</li>
+<li>Teknik overlay menggunakan <em>Drag-and-Drop</em>.</li>
+</ul></li>
+<li><p><strong>Batch Analysis</strong>:</p>
+<ul>
+<li>Analisis data multi-sampel sekaligus.</li>
+<li>Penerapan template gating ke seluruh sampel.</li>
+</ul></li>
+<li><p><strong>Export Data ke Excel</strong>:</p>
+<ul>
+<li>Ekstrak statistik (MFI, frekuensi populasi).</li>
+<li>Ekspor tabel sebagai <em>.csv</em> atau <em>.xlsx</em>.</li>
+</ul>
+<p><strong>Aktivitas</strong>:</p>
+<ul>
+<li>Studi kasus: Analisis aktivasi sel T (misal: IFN-γ+ setelah stimulasi).</li>
+<li>Praktik gating, overlay, dan analisis batch.</li>
+</ul>
+<p>Video panduan</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/RC97XFZS03g" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div></li>
+</ol>
+<hr>
+</section>
+<section id="modul-4-studi-kasus-dan-simulasi---eksplorasi-mandiri-sel-t-cd8-dan-sel-nk" class="level3">
+<h3 class="anchored" data-anchor-id="modul-4-studi-kasus-dan-simulasi---eksplorasi-mandiri-sel-t-cd8-dan-sel-nk"><strong>Modul 4: Studi Kasus dan Simulasi - Eksplorasi Mandiri sel T CD8 dan sel NK</strong></h3>
+<p><strong>Durasi</strong>: 1 jam</p>
+<p><strong>Materi</strong>:</p>
+<ol type="1">
+<li>Analisis data sel T dan sel NK untuk melihat ekspresi Perforin dan Granzyme (contoh dataset disediakan).</li>
+<li>Interpretasi hasil:
+<ul>
+<li>Frekuensi sel T CD8 (Persentase Perforind an Granzyme).</li>
+<li>Eksplorasi sel NK (Strategi gating khusus sel NK, ekspresi perforin, dan granzyme)</li>
+<li>Perbandingan antar kelompok (stimulasi vs kontrol). <strong>Aktivitas</strong>:</li>
 </ul></li>
 </ol>
+<ul>
+<li>Presentasi hasil dan diskusi kelompok.</li>
+</ul>
+<hr>
 </section>
-<section id="instalasi-ollama-jika-menggunakan-model-lokal" class="level3">
-<h3 class="anchored" data-anchor-id="instalasi-ollama-jika-menggunakan-model-lokal">3. Instalasi Ollama (Jika Menggunakan Model Lokal)</h3>
-<p>Jika Anda ingin menjalankan model bahasa lokal seperti Llama3.1, ikuti langkah berikut:</p>
+<section id="modul-5-tanya-jawab-dan-evaluasi" class="level3">
+<h3 class="anchored" data-anchor-id="modul-5-tanya-jawab-dan-evaluasi"><strong>Modul 5: Tanya Jawab dan Evaluasi</strong></h3>
+<p><strong>Aktivitas</strong>:</p>
+<ul>
+<li>Diskusi masalah umum (misal: gating tidak konsisten, error ekspor data).</li>
+<li>Kuis singkat untuk evaluasi pemahaman.</li>
+<li>Pembagian sertifikat partisipasi (opsional).</li>
+</ul>
+<hr>
+</section>
+<section id="prasyarat-peserta" class="level3">
+<h3 class="anchored" data-anchor-id="prasyarat-peserta"><strong>Prasyarat Peserta</strong></h3>
 <ol type="1">
-<li><strong>Instal Ollama</strong>
-<ul>
-<li><p>Unduh dan instal Ollama dari situs resminya: <a href="https://ollama.com/">https://ollama.com/</a>.</p></li>
-<li><p>Untuk Linux, jalankan:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-fsSL</span> https://ollama.com/install.sh <span class="kw">|</span> <span class="fu">sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul></li>
-<li><strong>Unduh Model</strong>
-<ul>
-<li><p>Jalankan perintah untuk mengunduh model yang diinginkan, misalnya:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> pull llama3.1:8b-instruct-q6_K</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> pull nomic-embed-text:latest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul></li>
-<li><strong>Konfigurasi Ollama untuk Jaringan</strong>
-<ul>
-<li><p>Pastikan Ollama dapat diakses oleh Perplexica dengan menambahkan pengaturan jaringan. Edit file konfigurasi Ollama atau tambahkan baris berikut di docker-compose.yml Perplexica:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extra_hosts</span><span class="kw">:</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"host.docker.internal:host-gateway"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul></li>
+<li>Pemahaman dasar flow cytometry (prinsip scatter plot, fluorokrom).</li>
+<li>Familiar dengan marker imunologi sel T dan sel NK.</li>
 </ol>
 </section>
+<section id="software-dan-perangkat-pendukung" class="level3">
+<h3 class="anchored" data-anchor-id="software-dan-perangkat-pendukung"><strong>Software dan Perangkat Pendukung</strong></h3>
+<ol type="1">
+<li>FlowJo v10.8+ (tersedia versi trial).</li>
+<li>Dataset ( data FCS sel T dan sel NK).</li>
+<li>Microsoft Excel/Google Sheets.</li>
+</ol>
 </section>
-<section id="menggunakan-perplexica" class="level2">
-<h2 class="anchored" data-anchor-id="menggunakan-perplexica">Menggunakan Perplexica</h2>
-<p>Untuk menggunakan Perplexica cukup mudah. Kita dapat membuka halaman web yang menjadi alamat localhost yaitu: http://localhost:3000.</p>
+<section id="referensi-tambahan" class="level3">
+<h3 class="anchored" data-anchor-id="referensi-tambahan"><strong>Referensi Tambahan</strong></h3>
+<ol type="1">
+<li>Buku panduan FlowJo (tersedia di situs resmi).</li>
+<li>Video tutorial FlowJo Channel di YouTube.</li>
+</ol>
+</section>
+<section id="panduan-teknis-aplikasi-flowjo" class="level2">
+<h2 class="anchored" data-anchor-id="panduan-teknis-aplikasi-flowjo">Panduan Teknis Aplikasi Flowjo</h2>
+<section id="workspace-pada-aplikasi-flowjo" class="level3">
+<h3 class="anchored" data-anchor-id="workspace-pada-aplikasi-flowjo">Workspace pada Aplikasi FlowJo</h3>
+<p><img src="workspace-flowjo.png" class="img-fluid"></p>
+<p><strong>Gambar 1</strong>. Tampilan jendela workspace.</p>
+<p>Jendela Workspace terorganisir dalam tiga bagian utama (seperti pada gambar di atas):</p>
+</section>
+<section id="tasks-tugas-dan-bands-pita" class="level3">
+<h3 class="anchored" data-anchor-id="tasks-tugas-dan-bands-pita">1) Tasks (Tugas) dan Bands (Pita)</h3>
 <ul>
-<li><p>Tampilan docker desktop, klik <em>run</em> pada grup Perplexica <img src="docker-desktop.png" class="img-fluid" alt="Docker Desktop"></p></li>
-<li><p>Setelah dipastikan run, anda perlu mengaktivasi ollama terlebih dahulu, dengan klik applikasi <em>ollama</em>. Untuk memastikan baik Ollama dan Docker sudah berjalan, kita bisa cek pada taskbar. Gambar pada baris kedua, urutan pertama dan kedua dari kiri merupakan logo Docker dan Ollama. <img src="taskbar.png" class="img-fluid" alt="Taskbar"></p></li>
-<li><p>Waktunya kita diskusi dengan asisten peneliti!. Dalam kesempatan ini saya mencoba untuk melakukan pencarian pada topik antibodi terhadap rpfb dan dpfb bakteri MTB.</p>
+<li><strong>Tasks</strong> mengelompokkan band sejenis bersama, dan muncul sebagai “tab” pada Workspace.<br>
+</li>
+<li>Terdapat <strong>Workspace task</strong> (ditunjukkan di atas) yang mengelompokkan operasi spesifik seperti:
 <ul>
-<li>Berikut tampilan yang kita peroleh <img src="perplexica-search.png" class="img-fluid" alt="Perplexica"></li>
+<li>Menambahkan statistik</li>
+<li>Melihat properti sampel</li>
+<li>Membuat/memodifikasi grup</li>
+</ul></li>
+<li><strong>Bands</strong> mengelompokkan aksi serupa. Contoh:
+<ul>
+<li>Band <strong>Groups</strong>: berisi aksi pembuatan grup, penyalinan gate, dan pengelompokan sampel.</li>
 </ul></li>
 </ul>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-    A[Mulai] --&gt; B[Install Prasyarat]
-    B --&gt; C[Klon Repositori]
-    C --&gt; D[Konfigurasi]
-    D --&gt; E{Gunakan Model Lokal?}
-    E -- Ya --&gt; F[Install Ollama]
-    F --&gt; G[Unduh Model]
-    G --&gt; H[Konfigurasi Jaringan]
-    H --&gt; I[Jalankan Docker Compose]
-    E -- Tidak --&gt; I
-    I --&gt; J[Akses Perplexica]
-    J --&gt; K[Selesai]
-</pre>
-</div>
-<p></p><figcaption> Diagram alur instalasi dan penggunaan Perplexica</figcaption> </figure><p></p>
-</div>
-</div>
-</div>
 </section>
-<section id="kesimpulan" class="level2">
-<h2 class="anchored" data-anchor-id="kesimpulan">Kesimpulan</h2>
-<p>Ini adalah panduan instalasi Perplexica, sebuah mesin pencari berbasis AI open-source yang dapat dijalankan secara lokal. Panduan ini juga menyertakan contoh penggunaan dengan topik antibodi terhadap protein bakteri MTB. Selamat mencoba</p>
-<p>Referensi: <a href="https://github.com/ItzCrazyKns/Perplexica">Perplexica github</a></p>
+<section id="groups-grup" class="level3">
+<h3 class="anchored" data-anchor-id="groups-grup">2) Groups (Grup)</h3>
+<ul>
+<li>Area ini menampilkan daftar grup dengan informasi:
+<ul>
+<li>Jumlah sampel (<strong>Size</strong>)</li>
+<li>Peran grup (<strong>Role</strong>): kompensasi, kontrol, sampel uji, dll.</li>
+</ul></li>
+<li>Klik dua kali nama grup untuk memodifikasi properti grup.</li>
+</ul>
+</section>
+<section id="samples-dan-analisis-sampel" class="level3">
+<h3 class="anchored" data-anchor-id="samples-dan-analisis-sampel">3) Samples dan Analisis Sampel</h3>
+<ul>
+<li>Menampilkan daftar sampel dan analisis dari grup yang dipilih (contoh: Panel 2.2 di atas).</li>
+<li>Kolom default yang ditampilkan:
+<ul>
+<li><strong>Statistic</strong> (statistik)</li>
+<li><strong>#Cells</strong> (jumlah sel)</li>
+</ul></li>
+<li>Kolom tambahan bisa ditambahkan untuk menampilkan:
+<ul>
+<li>Keyword (metadata)</li>
+<li>Protokol pewarnaan</li>
+<li>Anotasi</li>
+</ul></li>
+<li>Sampel akan diurutkan berdasarkan:
+<ul>
+<li>Keyword “well id” (jika ada)</li>
+<li>Preferensi penamaan sampel (jika “well id” tidak ditemukan).</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="indikator-tambahan-pada-workspace" class="level3">
+<h3 class="anchored" data-anchor-id="indikator-tambahan-pada-workspace">Indikator Tambahan pada Workspace</h3>
+<section id="indicator-badges" class="level4">
+<h4 class="anchored" data-anchor-id="indicator-badges">1) <strong>Indicator Badges</strong></h4>
+<ul>
+<li>FlowJo menggunakan <strong>warna dan simbol</strong> untuk merepresentasikan:
+<ul>
+<li>Status sampel (terkompensasi vs.&nbsp;tidak, valid vs.&nbsp;tidak valid)</li>
+<li>Anotasi internal (file terbuka vs.&nbsp;tertutup)</li>
+<li><a href="#">Detail badge lengkap lihat di sini</a>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="group-colors" class="level4">
+<h4 class="anchored" data-anchor-id="group-colors">2) <strong>Group Colors</strong></h4>
+<ul>
+<li>Warna teks digunakan untuk identifikasi grup:
+<ul>
+<li>Setiap grup memiliki warna unik</li>
+<li>Populasi dalam grup mewarisi karakteristik warna teks grupnya</li>
+<li><a href="#">Pelajari lebih lanjut tentang grup di sini</a>.</li>
+</ul></li>
+</ul>
 
 
+</section>
+</section>
+</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ariyanto2025,
   author = {Ariyanto, Ibnu},
-  title = {Panduan {Instalasi} Perplexica: Alternatif Versi Open-Source
-    Untuk Perplexity},
+  title = {Analisis {Flow} {Cytometry} Untuk Sel {T} {CD8} Dan Sel {NK}},
   date = {2025-06-23},
-  url = {https://ibnuariyanto.github.io/post/2025-06-23-Flow-Perplexica/},
+  url = {https://ibnuariyanto.github.io/post/2025-06-23-Flow-cytometry-2/},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ariyanto2025" class="csl-entry quarto-appendix-citeas" role="listitem">
-Ariyanto, Ibnu. 2025. <span>“Panduan Instalasi Perplexica: Alternatif
-Versi Open-Source Untuk Perplexity.”</span> June 23, 2025. <a href="https://ibnuariyanto.github.io/post/2025-06-23-Flow-Perplexica/">https://ibnuariyanto.github.io/post/2025-06-23-Flow-Perplexica/</a>.
+Ariyanto, Ibnu. 2025. <span>“Analisis Flow Cytometry Untuk Sel T CD8 Dan
+Sel NK.”</span> June 23, 2025. <a href="https://ibnuariyanto.github.io/post/2025-06-23-Flow-cytometry-2/">https://ibnuariyanto.github.io/post/2025-06-23-Flow-cytometry-2/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

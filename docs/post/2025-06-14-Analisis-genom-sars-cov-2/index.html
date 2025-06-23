@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ibnu Ariyanto">
-<meta name="dcterms.date" content="2025-06-23">
-<meta name="description" content="Instalasi Perplexica pada Windows">
+<meta name="dcterms.date" content="2025-06-16">
+<meta name="description" content="Analisis Genom Virus SARS-CoV-2: Panduan Analisis Data Sekuensing .fastq hingga anotasi genom virus">
 
-<title>Panduan Instalasi perplexica: alternatif versi open-source untuk perplexity – Ibnu Ariyanto</title>
+<title>Praktikum Teknik Pemeriksaan Virus: Analisis data sekuensing virus SARS-CoV-2 – Ibnu Ariyanto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,9 +107,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -176,16 +173,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Panduan Instalasi perplexica: alternatif versi open-source untuk perplexity</h1>
+      <h1 class="title">Praktikum Teknik Pemeriksaan Virus: Analisis data sekuensing virus SARS-CoV-2</h1>
                   <div>
         <div class="description">
-          Instalasi Perplexica pada Windows
+          Analisis Genom Virus SARS-CoV-2: Panduan Analisis Data Sekuensing .fastq hingga anotasi genom virus
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">Open source</div>
-                <div class="quarto-category">Ollama</div>
-                <div class="quarto-category">AI</div>
+                <div class="quarto-category">Genomic</div>
+                <div class="quarto-category">Bioinformatics</div>
+                <div class="quarto-category">SARS-CoV-2</div>
               </div>
                   </div>
   </div>
@@ -210,7 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 23, 2025</p>
+        <p class="date">June 16, 2025</p>
       </div>
     </div>
     
@@ -229,139 +226,193 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="pendahuluan" class="level2">
-<h2 class="anchored" data-anchor-id="pendahuluan">Pendahuluan</h2>
-<p>Berikut adalah panduan instalasi <strong>perplexica</strong>, sebuah mesin pencari berbasis AI open-source yang dapat dijalankan secara lokal. Panduan ini mengacu pada informasi resmi dari repositori GitHub Perplexica dan sumber terkait, serta disusun untuk memudahkan pengguna dalam proses instalasi.</p>
+<p>Mata Kuliah Teknik Pemeriksaan Virus</p>
+<p>Kegiatan perkuliahan ini dilaksanakan pada High Performance Computer di Laboratorium Molekuler dan Virologi di Laboratorium Mikrobiologi Klinik FKUI <a href="https://ariyantoia.notion.site/hpcmikrofkui?source=copy_link">Halaman Booking HPC</a></p>
+<section id="workflow-analisis" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-analisis">Workflow analisis</h2>
+<p><img src="mapping.png" class="img-fluid"></p>
 </section>
-<section id="prasyarat" class="level2">
-<h2 class="anchored" data-anchor-id="prasyarat">Prasyarat</h2>
-<p>Sebelum memulai, pastikan Anda memiliki:</p>
+<section id="analisis-sekuens-qc-dan-reads-alignment" class="level2">
+<h2 class="anchored" data-anchor-id="analisis-sekuens-qc-dan-reads-alignment">Analisis sekuens, QC, dan reads alignment</h2>
 <ol type="1">
-<li><strong>Docker</strong> dan <strong>Docker Compose</strong> terinstal di sistem Anda (Linux, Windows, atau Mac).</li>
-<li><strong>Ollama</strong> (opsional, untuk menjalankan model bahasa lokal seperti Llama3.1). Jika Anda ingin menggunakan model lokal, pastikan Ollama terinstal.</li>
-<li><strong>Node.js</strong> dan <strong>npm</strong> (jika Anda ingin menjalankan Perplexica tanpa Docker).</li>
-<li>Koneksi internet untuk mengunduh dependensi dan model.</li>
-<li>Spesifikasi perangkat:
-<ul>
-<li>RAM minimal 8GB (disarankan 16GB untuk performa optimal).</li>
-<li>GPU (opsional, untuk mempercepat pemrosesan model lokal).</li>
-</ul></li>
+<li>Aktivasi <em>environment</em> bioconda</li>
 </ol>
-</section>
-<section id="langkah-langkah-instalasi" class="level2">
-<h2 class="anchored" data-anchor-id="langkah-langkah-instalasi">Langkah-langkah Instalasi</h2>
-<section id="klon-repositori-perplexica" class="level3">
-<h3 class="anchored" data-anchor-id="klon-repositori-perplexica">1. Klon Repositori Perplexica</h3>
-<p>Buka terminal dan jalankan perintah berikut untuk mengunduh kode sumber Perplexica dari GitHub:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/ItzCrazyKns/Perplexica.git</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Perplexica</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="instalasi-menggunakan-docker-disarankan" class="level3">
-<h3 class="anchored" data-anchor-id="instalasi-menggunakan-docker-disarankan">2. Instalasi Menggunakan Docker (Disarankan)</h3>
-<p>Docker adalah cara termudah untuk menjalankan Perplexica karena semua dependensi dikelola secara otomatis.</p>
-<ol type="1">
-<li><strong>Konfigurasi File Konfigurasi</strong>
-<ul>
-<li><p>Di dalam direktori Perplexica, cari file sample.config.toml dan salin ke config.toml:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> sample.config.toml config.toml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Buka config.toml dengan editor teks (misalnya, nano config.toml) dan sesuaikan pengaturan:</p>
-<ul>
-<li><strong>Ollama API URL</strong>: Jika menggunakan Ollama, masukkan URL seperti http://host.docker.internal:11434 (port default Ollama). Jika Ollama diinstal di port lain, sesuaikan nomor portnya.</li>
-<li><strong>Model LLM</strong>: Tentukan model yang ingin digunakan, misalnya llama3.1:8b-instruct-q6_K untuk model chat dan nomic-embed-text:137m-v1.5-fp16 untuk embedding.</li>
-</ul></li>
-</ul></li>
-<li><strong>Jalankan Docker Compose</strong>
-<ul>
-<li><p>Dari direktori Perplexica, jalankan:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker-compose</span> up <span class="at">-d</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Perintah ini akan mengunduh image Docker untuk SearxNG (mesin pencari meta), backend, dan frontend Perplexica, lalu menjalankan tiga kontainer. Proses ini mungkin memakan waktu beberapa menit tergantung kecepatan internet.</p></li>
-</ul></li>
-<li><strong>Akses Perplexica</strong>
-<ul>
-<li>Setelah kontainer berjalan, buka browser dan akses http://localhost:3000.</li>
-<li>Untuk mengatur model Ollama, klik ikon <strong>Settings</strong> (roda gigi di kiri bawah) dan pilih model chat serta embedding yang diinginkan.</li>
-</ul></li>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate MOOC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Buat folder sesuai nama kelompok
+<ol type="a">
+<li>Lalu masuk ke folder yang sudah dibuat</li>
 </ol>
-</section>
-<section id="instalasi-ollama-jika-menggunakan-model-lokal" class="level3">
-<h3 class="anchored" data-anchor-id="instalasi-ollama-jika-menggunakan-model-lokal">3. Instalasi Ollama (Jika Menggunakan Model Lokal)</h3>
-<p>Jika Anda ingin menjalankan model bahasa lokal seperti Llama3.1, ikuti langkah berikut:</p>
-<ol type="1">
-<li><strong>Instal Ollama</strong>
-<ul>
-<li><p>Unduh dan instal Ollama dari situs resminya: <a href="https://ollama.com/">https://ollama.com/</a>.</p></li>
-<li><p>Untuk Linux, jalankan:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-fsSL</span> https://ollama.com/install.sh <span class="kw">|</span> <span class="fu">sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul></li>
-<li><strong>Unduh Model</strong>
-<ul>
-<li><p>Jalankan perintah untuk mengunduh model yang diinginkan, misalnya:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> pull llama3.1:8b-instruct-q6_K</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> pull nomic-embed-text:latest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul></li>
-<li><strong>Konfigurasi Ollama untuk Jaringan</strong>
-<ul>
-<li><p>Pastikan Ollama dapat diakses oleh Perplexica dengan menambahkan pengaturan jaringan. Edit file konfigurasi Ollama atau tambahkan baris berikut di docker-compose.yml Perplexica:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extra_hosts</span><span class="kw">:</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"host.docker.internal:host-gateway"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul></li>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> kelompok1 <span class="co">#kelompok1</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> kelompok2 <span class="co">#kelompok2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="a">
+<li>Copy paste ke terminal kode berikut untuk masuk ke folder</li>
 </ol>
-</section>
-</section>
-<section id="menggunakan-perplexica" class="level2">
-<h2 class="anchored" data-anchor-id="menggunakan-perplexica">Menggunakan Perplexica</h2>
-<p>Untuk menggunakan Perplexica cukup mudah. Kita dapat membuka halaman web yang menjadi alamat localhost yaitu: http://localhost:3000.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> kelompok1 <span class="co">#kelompok1</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> kelompok2 <span class="co">#kelompok2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>Download sekuens dari Sequence Resource Analysis (SRA), setelah berhasil masuk ke</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastq-dump</span> <span class="at">--split-files</span> ERR5743893 <span class="co">#kelompok1</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">fastq-dump</span> <span class="at">--split-files</span> ERR5743894 <span class="co">#kelompok2</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li>Buat folder baru untuk analisis QC hasil sekuensing
+<ol type="a">
+<li>Kelompok 1</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> QC_Reports </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> kelompok1</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> ERR5743893_1.fastq ERR5743893_2.fastq <span class="at">--outdir</span> QC_Reports</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="a">
+<li>Kelompok 2</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> QC_Reports</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> kelompok2</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> ERR5743894_1.fastq ERR5743894_2.fastq <span class="at">--outdir</span> QC_Reports </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="a">
+<li>buka hasil analisis qc dalam folder QC_Reports
 <ul>
-<li><p>Tampilan docker desktop, klik <em>run</em> pada grup Perplexica <img src="docker-desktop.png" class="img-fluid" alt="Docker Desktop"></p></li>
-<li><p>Setelah dipastikan run, anda perlu mengaktivasi ollama terlebih dahulu, dengan klik applikasi <em>ollama</em>. Untuk memastikan baik Ollama dan Docker sudah berjalan, kita bisa cek pada taskbar. Gambar pada baris kedua, urutan pertama dan kedua dari kiri merupakan logo Docker dan Ollama. <img src="taskbar.png" class="img-fluid" alt="Taskbar"></p></li>
-<li><p>Waktunya kita diskusi dengan asisten peneliti!. Dalam kesempatan ini saya mencoba untuk melakukan pencarian pada topik antibodi terhadap rpfb dan dpfb bakteri MTB.</p>
-<ul>
-<li>Berikut tampilan yang kita peroleh <img src="perplexica-search.png" class="img-fluid" alt="Perplexica"></li>
-</ul></li>
+<li>Buka folder kelompok</li>
 </ul>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-    A[Mulai] --&gt; B[Install Prasyarat]
-    B --&gt; C[Klon Repositori]
-    C --&gt; D[Konfigurasi]
-    D --&gt; E{Gunakan Model Lokal?}
-    E -- Ya --&gt; F[Install Ollama]
-    F --&gt; G[Unduh Model]
-    G --&gt; H[Konfigurasi Jaringan]
-    H --&gt; I[Jalankan Docker Compose]
-    E -- Tidak --&gt; I
-    I --&gt; J[Akses Perplexica]
-    J --&gt; K[Selesai]
-</pre>
-</div>
-<p></p><figcaption> Diagram alur instalasi dan penggunaan Perplexica</figcaption> </figure><p></p>
-</div>
-</div>
-</div>
+Pada halaman desktop klik “Home” buka folder masing-masing kelompok sesuai path yang ditunjukan dari run kode di bawah ini</li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">multiqc</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>Tahap sekuens Mapping
+<ol type="a">
+<li>buat folder untuk mapping dengan kembali ke folder kelompok di terminal terlebih dahulu</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> kelompok1 <span class="co">#kelompok1</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> kelompok2 <span class="co">#kelompok2</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/MN908947.fasta ~/kelompok1/ <span class="co">#kelompok1</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/MN908947.fasta ~/kelompok2/ <span class="co">#kelompok2</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> mapping</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>Tahapan alignment dengan sekuens SARS-CoV-2 yang sudah diketahui
+<ol type="a">
+<li><p>Membuat sekuens MN08947.fasta sebagai <em>genome reference</em></p></li>
+<li><p>buka folder mapping masing-masing kelompok</p></li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> index MN908947.fasta <span class="co">#dalam folder kelompok</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> faidx MN908947.fasta</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="co">#kembali ke home</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> kelompok1 <span class="co">#masuk ke folder kelompok 1</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> kelompok2 <span class="co">#masuk ke folder kelompok 2</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok1</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> mem MN908947.fasta ERR5743893_1.fastq ERR5743893_2.fastq <span class="op">&gt;</span> mapping/ERR5743893.sam</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok2</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> mem MN908947.fasta ERR5743894_1.fastq ERR5743894_2.fastq <span class="op">&gt;</span> mapping/ERR5743894.sam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="a">
+<li>Mengubah file “.sam” menjadi “.bam”</li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> mapping</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lhrt</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok1</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-@</span> 20 <span class="at">-S</span> <span class="at">-b</span> ERR5743893.sam <span class="op">&gt;</span> ERR5743893.bam</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok2</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-@</span> 20 <span class="at">-S</span> <span class="at">-b</span> ERR5743894.sam <span class="op">&gt;</span> ERR5743894.bam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="a">
+<li>Mengurutkan sekuens genom berdasarkan referensi</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok1</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> sort <span class="at">-@</span> 32 <span class="at">-o</span> ERR5743893.sorted.bam ERR5743893.bam</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok2</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> sort <span class="at">-@</span> 32 <span class="at">-o</span> ERR5743894.sorted.bam ERR5743894.bam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="5" type="a">
+<li>Buat index mapping</li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok1</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> index ERR5743893.sorted.bam</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok2</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> index ERR5743894.sorted.bam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
 </section>
-<section id="kesimpulan" class="level2">
-<h2 class="anchored" data-anchor-id="kesimpulan">Kesimpulan</h2>
-<p>Ini adalah panduan instalasi Perplexica, sebuah mesin pencari berbasis AI open-source yang dapat dijalankan secara lokal. Panduan ini juga menyertakan contoh penggunaan dengan topik antibodi terhadap protein bakteri MTB. Selamat mencoba</p>
-<p>Referensi: <a href="https://github.com/ItzCrazyKns/Perplexica">Perplexica github</a></p>
+<section id="genomic-coverage" class="level2">
+<h2 class="anchored" data-anchor-id="genomic-coverage">Genomic coverage</h2>
+<p>Buka website</p>
+<p><a href="https://igv.org/app/">https://igv.org/app/</a></p>
+<p>Tutorial</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/die924mosh0?si=XQoKiyiig0seZFEv" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<ol type="1">
+<li><p>buka folder masing-masing kelompok dan masuk ke dalam folder melalui desktop</p>
+<ol type="a">
+<li>Klik Genomes → local</li>
+</ol>
+<p>masukan file .fasta dan.fai</p>
+<ol start="2" type="a">
+<li>Klik tracks → local</li>
+</ol>
+<p>masukan file .sorted.bam dan .sorted.bam.bwi</p></li>
+<li><p>Klik Genomes → pilih SARS-CoV-2 dari database</p>
+<ol type="a">
+<li>Klik tracks → local</li>
+</ol>
+<p>masukan file .sorted.bam dan .sorted.bam.bwi</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Protein S spike berada pada urutan genom nukleutida urutan berapa?</p>
+<p>Kelompok 2: 21,563-25,384</p>
+<p>Kelompok 1: 21,563-25,384</p>
+</div>
+</div></li>
+</ol>
+</section>
+<section id="variant-calling" class="level2">
+<h2 class="anchored" data-anchor-id="variant-calling">Variant calling</h2>
+<ol type="1">
+<li>Untuk variant calling praktikum ini akan digunakan freebayes</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok1</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">freebayes</span> <span class="at">-f</span> MN908947.fasta ~/kelompok1/mapping/ERR5743893.sorted.bam  <span class="op">&gt;</span> ERR5743893.vcf <span class="co">#kelompok1</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ex">bgzip</span> ERR5743893.vcf</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="ex">tabix</span> ERR5743893.vcf.gz</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="ex">bcftools</span> query <span class="at">-f</span> <span class="st">'%TYPE\n'</span> ERR5743893.vcf.gz <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="at">-c</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok2</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="ex">freebayes</span> <span class="at">-f</span> MN908947.fasta ~/kelompok2/mapping/ERR5743894.sorted.bam  <span class="op">&gt;</span> ERR5743894.vcf <span class="co">#kelompok2</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="ex">bgzip</span> ERR5743894.vcf</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="ex">tabix</span> ERR5743894.vcf.gz</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="ex">bcftools</span> query <span class="at">-f</span> <span class="st">'%TYPE\n'</span> ERR5743894.vcf.gz <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="at">-c</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Berapa SNPs dan Indel yang anda peroleh?</p>
+<p>Kelompok 2: 4 INDEL, 2 MNP, 89 SNP</p>
+<p>Kelompok 1: 1 INDEL 75 SNP</p>
+</div>
+</div>
 
 
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ariyanto2025,
   author = {Ariyanto, Ibnu},
-  title = {Panduan {Instalasi} Perplexica: Alternatif Versi Open-Source
-    Untuk Perplexity},
-  date = {2025-06-23},
-  url = {https://ibnuariyanto.github.io/post/2025-06-23-Flow-Perplexica/},
+  title = {Praktikum {Teknik} {Pemeriksaan} {Virus:} {Analisis} Data
+    Sekuensing Virus {SARS-CoV-2}},
+  date = {2025-06-16},
+  url = {https://ibnuariyanto.github.io/post/2025-06-14-Analisis-genom-sars-cov-2},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ariyanto2025" class="csl-entry quarto-appendix-citeas" role="listitem">
-Ariyanto, Ibnu. 2025. <span>“Panduan Instalasi Perplexica: Alternatif
-Versi Open-Source Untuk Perplexity.”</span> June 23, 2025. <a href="https://ibnuariyanto.github.io/post/2025-06-23-Flow-Perplexica/">https://ibnuariyanto.github.io/post/2025-06-23-Flow-Perplexica/</a>.
+Ariyanto, Ibnu. 2025. <span>“Praktikum Teknik Pemeriksaan Virus:
+Analisis Data Sekuensing Virus SARS-CoV-2.”</span> June 16, 2025. <a href="https://ibnuariyanto.github.io/post/2025-06-14-Analisis-genom-sars-cov-2">https://ibnuariyanto.github.io/post/2025-06-14-Analisis-genom-sars-cov-2</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

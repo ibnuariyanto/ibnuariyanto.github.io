@@ -1,16 +1,16 @@
 ---
-title: "Panduan Instalasi perplexica: alternatif versi open-source untuk perplexity"
+title: "Simple guide: application of AI for literature search in Bahasa"
 format: html
-description: "Instalasi Perplexica pada Windows"
+description: "Panduan Instalasi perplexica: alternatif versi open-source untuk perplexity"
 author:
   - name: Ibnu Ariyanto
     url: https://ibnuariyanto.github.io/
     orcid: 0000-0003-0576-0562
     affiliation: Department of Clinical Microbiology, Faculty of Medicine, Universitas Indonesia
-date: 06-16-2025
+date: 06-23-2025
 categories: [Open source, Ollama, AI] # self-defined categories
 citation: 
-  url: https://ibnuariyanto.github.io/post/2025-05-20-Flow-cytometry/ 
+  url: https://ibnuariyanto.github.io/post/2025-06-23-Flow-Perplexica/ 
 image: title.png
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 ---
@@ -126,4 +126,5 @@ flowchart TD
 Ini adalah panduan instalasi Perplexica, sebuah mesin pencari berbasis AI open-source yang dapat dijalankan secara lokal. Panduan ini juga menyertakan contoh penggunaan dengan topik antibodi terhadap protein bakteri MTB. Selamat mencoba
 
 Referensi:
-https://github.com/ItzCrazyKns/Perplexica 
+[Perplexica github](https://github.com/ItzCrazyKns/Perplexica)
+ 

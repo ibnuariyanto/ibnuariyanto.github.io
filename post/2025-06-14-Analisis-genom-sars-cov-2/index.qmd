@@ -1,0 +1,187 @@
+---
+title: "Praktikum Teknik Pemeriksaan Virus: Analisis data sekuensing virus SARS-CoV-2"
+description: "Analisis Genom Virus SARS-CoV-2: Panduan Analisis Data Sekuensing .fastq hingga anotasi genom virus"
+author:
+  - name: Ibnu Ariyanto
+    url: https://ibnuariyanto.github.io/
+    orcid: 0000-0003-0576-0562
+    affiliation: Department of Clinical Microbiology, Faculty of Medicine, Universitas Indonesia
+date: 06-16-2025
+categories: [Genomic, Bioinformatics, SARS-CoV-2] # self-defined categories
+citation: 
+  url: https://ibnuariyanto.github.io/post/2025-06-14-Analisis-genom-sars-cov-2 
+image: preview-image.png
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+---
+Mata Kuliah Teknik Pemeriksaan Virus
+
+Kegiatan perkuliahan ini dilaksanakan pada High Performance Computer di Laboratorium Molekuler dan Virologi di Laboratorium Mikrobiologi Klinik FKUI
+[Halaman Booking HPC](https://ariyantoia.notion.site/hpcmikrofkui?source=copy_link)
+
+## Workflow analisis
+
+![](mapping.png)
+
+## Analisis sekuens, QC, dan reads alignment
+
+1. Aktivasi *environment* bioconda
+```bash
+conda activate MOOC
+```
+
+2. Buat folder sesuai nama kelompok
+   a. Lalu masuk ke folder yang sudah dibuat
+   ```bash
+   mkdir kelompok1 #kelompok1
+   mkdir kelompok2 #kelompok2
+   ```
+   
+   b. Copy paste ke terminal kode berikut untuk masuk ke folder
+   ```bash
+   cd kelompok1 #kelompok1
+   cd kelompok2 #kelompok2
+   ```
+
+3. Download sekuens dari Sequence Resource Analysis (SRA), setelah berhasil masuk ke 
+```bash
+fastq-dump --split-files ERR5743893 #kelompok1
+fastq-dump --split-files ERR5743894 #kelompok2
+ls
+```
+
+4. Buat folder baru untuk analisis QC hasil sekuensing
+   a. Kelompok 1
+   ```bash
+   mkdir -p QC_Reports 
+   cd
+   cd kelompok1
+   fastqc ERR5743893_1.fastq ERR5743893_2.fastq --outdir QC_Reports
+   ```
+   
+   b. Kelompok 2
+   ```bash
+   mkdir -p QC_Reports
+   cd
+   cd kelompok2
+   fastqc ERR5743894_1.fastq ERR5743894_2.fastq --outdir QC_Reports 
+   ```
+   
+   c. buka hasil analisis qc dalam folder QC_Reports
+      - Buka folder kelompok
+      
+      Pada halaman desktop klik "Home" buka folder masing-masing kelompok sesuai path yang ditunjukan dari run kode di bawah ini
+      
+   ```bash
+   multiqc .
+   ```
+
+5. Tahap sekuens Mapping
+   a. buat folder untuk mapping dengan kembali ke folder kelompok di terminal terlebih dahulu
+   ```bash
+   cd
+   cd kelompok1 #kelompok1
+   cd kelompok2 #kelompok2
+   cp ~/MN908947.fasta ~/kelompok1/ #kelompok1
+   cp ~/MN908947.fasta ~/kelompok2/ #kelompok2
+   mkdir mapping
+   ```
+
+6. Tahapan alignment dengan sekuens SARS-CoV-2 yang sudah diketahui 
+   a. Membuat sekuens MN08947.fasta sebagai *genome reference*
+   
+   b. buka folder mapping masing-masing kelompok
+   ```bash
+   bwa index MN908947.fasta #dalam folder kelompok
+   samtools faidx MN908947.fasta
+   cd #kembali ke home
+   cd kelompok1 #masuk ke folder kelompok 1
+   cd kelompok2 #masuk ke folder kelompok 2
+   #kelompok1
+   bwa mem MN908947.fasta ERR5743893_1.fastq ERR5743893_2.fastq > mapping/ERR5743893.sam
+   #kelompok2
+   bwa mem MN908947.fasta ERR5743894_1.fastq ERR5743894_2.fastq > mapping/ERR5743894.sam
+   ```
+   
+   c. Mengubah file ".sam" menjadi ".bam"
+   ```bash
+   cd mapping
+   ls -lhrt
+   #kelompok1
+   samtools view -@ 20 -S -b ERR5743893.sam > ERR5743893.bam
+   #kelompok2
+   samtools view -@ 20 -S -b ERR5743894.sam > ERR5743894.bam
+   ```
+   
+   d. Mengurutkan sekuens genom berdasarkan referensi
+   ```bash
+   #kelompok1
+   samtools sort -@ 32 -o ERR5743893.sorted.bam ERR5743893.bam
+   #kelompok2
+   samtools sort -@ 32 -o ERR5743894.sorted.bam ERR5743894.bam
+   ```
+   
+   e. Buat index mapping
+   ```bash
+   #kelompok1
+   samtools index ERR5743893.sorted.bam
+   #kelompok2
+   samtools index ERR5743894.sorted.bam
+   ```
+
+## Genomic coverage
+
+Buka website
+
+[https://igv.org/app/](https://igv.org/app/)
+
+Tutorial
+ {{< video https://www.youtube.com/embed/die924mosh0?si=XQoKiyiig0seZFEv >}}
+
+1. buka folder masing-masing kelompok dan masuk ke dalam folder melalui desktop
+   a. Klik Genomes → local
+   
+   masukan file .fasta dan.fai
+   
+   b. Klik tracks → local
+   
+   masukan file .sorted.bam dan .sorted.bam.bwi
+
+2. Klik Genomes → pilih SARS-CoV-2 dari database
+   a. Klik tracks → local
+   
+   masukan file .sorted.bam dan .sorted.bam.bwi
+   
+   :::callout-note
+   Protein S spike berada pada urutan genom nukleutida urutan berapa?
+   
+   Kelompok 2: 21,563-25,384
+   
+   Kelompok 1: 21,563-25,384
+   :::
+
+## Variant calling
+
+1. Untuk variant calling praktikum ini akan digunakan freebayes
+
+```bash
+#kelompok1
+
+freebayes -f MN908947.fasta ~/kelompok1/mapping/ERR5743893.sorted.bam  > ERR5743893.vcf #kelompok1
+bgzip ERR5743893.vcf
+tabix ERR5743893.vcf.gz
+bcftools query -f '%TYPE\n' ERR5743893.vcf.gz | sort | uniq -c
+
+#kelompok2
+freebayes -f MN908947.fasta ~/kelompok2/mapping/ERR5743894.sorted.bam  > ERR5743894.vcf #kelompok2
+bgzip ERR5743894.vcf
+tabix ERR5743894.vcf.gz
+bcftools query -f '%TYPE\n' ERR5743894.vcf.gz | sort | uniq -c
+```
+
+:::callout-note
+Berapa SNPs dan Indel yang anda peroleh?
+
+Kelompok 2: 4 INDEL, 2 MNP, 89 SNP
+
+Kelompok 1: 1 INDEL 75 SNP 
+:::

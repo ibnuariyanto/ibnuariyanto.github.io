@@ -1,0 +1,204 @@
+---
+title: "Flow cytometry analysis of CD8 T cells and NK cell in Bahasa"
+description: "Analisis Flow Cytometry sel T CD8 dan sel Natural Killer"
+author:
+  - name: Ibnu Ariyanto
+    url: https://ibnuariyanto.github.io/
+    orcid: 0000-0003-0576-0562
+    affiliation: Department of Clinical Microbiology, Faculty of Medicine, Universitas Indonesia
+date: 06-23-2025
+categories: [Flow Cytometry, FlowJo] # self-defined categories
+citation: 
+  url: https://ibnuariyanto.github.io/post/2025-06-23-Flow-cytometry-2/ 
+image: preview-image.png
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+---
+
+
+
+# Penggunaan FlowJo Untuk Analisis Flow Cytometry 
+
+### **Judul Pelatihan**
+
+**FlowJo untuk Analisis Imunaktivasi Sel T: Instalasi, Gating, dan Analisis Lanjutan**
+
+### **Tujuan Pelatihan**
+
+1. Peserta mampu menginstal dan mengaktivasi FlowJo secara mandiri.
+2. Peserta memahami antarmuka FlowJo dan fitur dasarnya.
+3. Peserta terampil dalam teknik gating, overlay, analisis batch, dan ekspor data ke Excel untuk analisis sel T CD8 dan sel NK.
+
+---
+
+### **Rincian Silabus**
+
+### **Modul 1: Instalasi dan Aktivasi FlowJo**
+
+**Materi**:
+
+1. Unduh FlowJo dari situs resmi ([https://www.flowjo.com](https://www.flowjo.com/)).
+    - Memilih versi yang sesuai (free trial/berlisensi).
+    - Install FLOWJO versi 10
+2. Persyaratan sistem (OS: Windows/macOS, RAM, storage).
+3. Langkah aktivasi online (kunci lisensi atau akun FlowJo).
+    
+    [mendapatkan free-trial key](https://www.flowjo.com/flowjo/free-trial)
+    
+4. Troubleshoot instalasi (error umum dan solusi).
+    
+    **Aktivitas**:
+    
+    - Demo instalasi oleh instruktur.
+    - Peserta melakukan instalasi dan aktivasi mandiri.
+
+---
+
+### **Modul 2: Pengenalan Antarmuka FlowJo**
+
+**Materi**:
+
+1. Layout workspace FlowJo:
+    - **Sample Manager**: mengimpor data FCS.
+    - **Graphical Editor**: visualisasi plot.
+    - **Table Editor**: statistik populasi sel.
+2. Impor data flow cytometry (format FCS).
+    - **Download data FCS** [file latihan analisis](https://drive.google.com/drive/folders/1kxribYOF4vB9nPilxtqaRQeTQYzPkwsx?usp=sharing)
+3. Navigasi dasar: zoom, pan, adjust axis (lin/log).
+4. Penyimpanan workspace (*.wsp*).
+    
+    **Aktivitas**:
+    
+    - Latihan impor data sampel (misal: data sel T CD3+/CD4+/CD8+).
+    - Eksplorasi fitur dasar antarmuka.
+    
+    Video panduan
+    
+    {{< video https://www.youtube.com/embed/oKAMh4r_YHE >}}
+
+---
+
+### **Modul 3: Teknik Gating untuk Aktivasi Imun Sel T CD8 dan CD8**
+
+**Materi**:
+
+1. Strategi gating manual:
+    - **Hierarki gating**: debris → single cells → lymphocytes → CD3+ → CD4+/CD8+.
+    - Penggunaan **Polygon**, **Rectangle**, dan **Ellipse Tool**.
+2. **Overlay Histogram/Plot**:
+    - Membandingkan ekspresi marker (misal: CD69+,IFN-gamma, IL-2 DMSO vs Spike Protein).
+    - Teknik overlay menggunakan *Drag-and-Drop*.
+3. **Batch Analysis**:
+    - Analisis data multi-sampel sekaligus.
+    - Penerapan template gating ke seluruh sampel. 
+4. **Export Data ke Excel**:
+    - Ekstrak statistik (MFI, frekuensi populasi).
+    - Ekspor tabel sebagai *.csv* atau *.xlsx*.
+    
+    **Aktivitas**:
+    
+    - Studi kasus: Analisis aktivasi sel T (misal: IFN-γ+ setelah stimulasi).
+    - Praktik gating, overlay, dan analisis batch.
+    
+    Video panduan
+    
+    {{< video https://www.youtube.com/embed/RC97XFZS03g >}}
+
+---
+
+### **Modul 4: Studi Kasus dan Simulasi - Eksplorasi Mandiri sel T CD8 dan sel NK**
+
+**Durasi**: 1 jam
+
+**Materi**:
+
+1. Analisis data sel T dan sel NK untuk melihat ekspresi Perforin dan Granzyme (contoh dataset disediakan).
+2. Interpretasi hasil:
+    - Frekuensi sel T CD8 (Persentase Perforind an Granzyme).
+    - Eksplorasi sel NK (Strategi gating khusus sel NK, ekspresi perforin, dan granzyme)
+    - Perbandingan antar kelompok (stimulasi vs kontrol).
+**Aktivitas**:
+- Presentasi hasil dan diskusi kelompok.
+
+---
+
+### **Modul 5: Tanya Jawab dan Evaluasi**
+
+**Aktivitas**:
+
+- Diskusi masalah umum (misal: gating tidak konsisten, error ekspor data).
+- Kuis singkat untuk evaluasi pemahaman.
+- Pembagian sertifikat partisipasi (opsional).
+
+---
+
+### **Prasyarat Peserta**
+
+1. Pemahaman dasar flow cytometry (prinsip scatter plot, fluorokrom).
+2. Familiar dengan marker imunologi sel T dan sel NK.
+
+### **Software dan Perangkat Pendukung**
+
+1. FlowJo v10.8+ (tersedia versi trial).
+2. Dataset ( data FCS sel T dan sel NK).
+3. Microsoft Excel/Google Sheets.
+
+### **Referensi Tambahan**
+
+1. Buku panduan FlowJo (tersedia di situs resmi).
+2. Video tutorial FlowJo Channel di YouTube.
+
+
+
+
+## Panduan Teknis Aplikasi Flowjo 
+### Workspace pada Aplikasi FlowJo
+
+![ ](workspace-flowjo.png)
+
+**Gambar 1**. Tampilan jendela workspace.
+
+Jendela Workspace terorganisir dalam tiga bagian utama (seperti pada gambar di atas):
+
+### 1) Tasks (Tugas) dan Bands (Pita)
+- **Tasks** mengelompokkan band sejenis bersama, dan muncul sebagai "tab" pada Workspace.  
+- Terdapat **Workspace task** (ditunjukkan di atas) yang mengelompokkan operasi spesifik seperti:
+  - Menambahkan statistik
+  - Melihat properti sampel
+  - Membuat/memodifikasi grup  
+
+- **Bands** mengelompokkan aksi serupa. Contoh:
+  - Band **Groups**: berisi aksi pembuatan grup, penyalinan gate, dan pengelompokan sampel.
+
+### 2) Groups (Grup)
+- Area ini menampilkan daftar grup dengan informasi:
+  - Jumlah sampel (**Size**)
+  - Peran grup (**Role**): kompensasi, kontrol, sampel uji, dll.
+- Klik dua kali nama grup untuk memodifikasi properti grup.
+
+### 3) Samples dan Analisis Sampel
+- Menampilkan daftar sampel dan analisis dari grup yang dipilih (contoh: Panel 2.2 di atas).
+- Kolom default yang ditampilkan:
+  - **Statistic** (statistik)
+  - **#Cells** (jumlah sel)
+- Kolom tambahan bisa ditambahkan untuk menampilkan:
+  - Keyword (metadata)
+  - Protokol pewarnaan
+  - Anotasi
+- Sampel akan diurutkan berdasarkan:
+  - Keyword "well id" (jika ada)
+  - Preferensi penamaan sampel (jika "well id" tidak ditemukan).
+
+---
+
+### Indikator Tambahan pada Workspace
+#### 1) **Indicator Badges**
+- FlowJo menggunakan **warna dan simbol** untuk merepresentasikan:
+  - Status sampel (terkompensasi vs. tidak, valid vs. tidak valid)
+  - Anotasi internal (file terbuka vs. tertutup)
+  - [Detail badge lengkap lihat di sini](#).
+
+#### 2) **Group Colors**
+- Warna teks digunakan untuk identifikasi grup:
+  - Setiap grup memiliki warna unik
+  - Populasi dalam grup mewarisi karakteristik warna teks grupnya
+  - [Pelajari lebih lanjut tentang grup di sini](#).

@@ -6,7 +6,7 @@ author:
     url: https://ibnuariyanto.github.io/
     orcid: 0000-0003-0576-0562
     affiliation: Department of Clinical Microbiology, Faculty of Medicine, Universitas Indonesia
-date: 05-20-2022
+date: 05-20-2025
 categories: [Flow Cytometry, FlowJo] # self-defined categories
 citation: 
   url: https://ibnuariyanto.github.io/post/2025-05-20-Flow-cytometry/ 
@@ -114,6 +114,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
     - Frekuensi sel T teraktivasi (CD25+/CD69+;Sub-Populasi sel T;HLA-DR/CD38+).
     - Eksplorasi sel T regulator atau unconventional T cells
     - Perbandingan antar kelompok (stimulasi vs kontrol).
+
 **Aktivitas**:
 - Peserta bekerja mandiri dengan dataset.
 - Presentasi hasil dan diskusi kelompok.
@@ -146,7 +147,8 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 1. Buku panduan FlowJo (tersedia di situs resmi).
 2. Video tutorial FlowJo Channel di YouTube.
 
-
+### **Referensi sumber dataset**
+[Immuneport SDY2034](https://www.immport.org/shared/study/SDY2034)
 
 
 ## Panduan Teknis Aplikasi Flowjo 

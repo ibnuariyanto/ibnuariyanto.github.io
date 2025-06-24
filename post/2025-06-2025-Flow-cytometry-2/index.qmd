@@ -20,7 +20,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 
 ### **Judul Pelatihan**
 
-**Analisis Flow Cytometry sel T CD8 dan sel Natural Killer**
+**Analisis Flow Cytometry sel Natural Killer**
 
 ### **Tujuan Pelatihan**
 

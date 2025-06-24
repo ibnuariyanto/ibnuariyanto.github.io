@@ -46,12 +46,13 @@ Modul ini merupakan lanjutan dari modul sebelumnya [Pengantar Analisis Flow Cyto
     - Perbandingan antar kelompok (HIV vs kontrol).
 
 **Aktivitas**:
+
 - Presentasi hasil dan diskusi kelompok.
 
- Video panduan
+   Video panduan
     
-    {{< video https://www.youtube.com/embed/f1J2p67_J7k >}}
-
+    {{< video "https://www.youtube.com/embed/f1J2p67_J7k" >}}
+    
 ---
 
 ### **Modul 2: Tanya Jawab dan Evaluasi**

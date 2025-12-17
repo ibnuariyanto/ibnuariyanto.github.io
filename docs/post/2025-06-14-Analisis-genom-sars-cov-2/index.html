@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Ibnu Ariyanto">
+<meta name="dcterms.date" content="2025-06-16">
+<meta name="description" content="Analisis Genom Virus SARS-CoV-2: Panduan Analisis Data Sekuensing .fastq hingga anotasi genom virus">
 
-<title>Research – Ibnu Ariyanto</title>
+<title>Praktikum Teknik Pemeriksaan Virus: Analisis data sekuensing virus SARS-CoV-2 – Ibnu Ariyanto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,31 +23,66 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-7271f29f9498218151f3120baddb7363.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-226bd0f977fa82dfae4534cac220d79a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-60da4a8b8337d121763e77258ccee9ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-056c24d5b8386a61c9e0c5386e7b7590.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-60da4a8b8337d121763e77258ccee9ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-7271f29f9498218151f3120baddb7363.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-226bd0f977fa82dfae4534cac220d79a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-60da4a8b8337d121763e77258ccee9ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-056c24d5b8386a61c9e0c5386e7b7590.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-60da4a8b8337d121763e77258ccee9ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -239,11 +277,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Ibnu Ariyanto</span>
     </a>
   </div>
@@ -254,11 +292,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./research.html" aria-current="page"> 
+    <a class="nav-link" href="../../research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
@@ -270,7 +308,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./post.html" target="posts.qmd"> 
+    <a class="nav-link" href="../../post.html" target="posts.qmd"> 
 <span class="menu-text">Courses</span></a>
   </li>  
   <li class="nav-item">
@@ -282,7 +320,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Blog Imunologi</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./contact.html"> 
+    <a class="nav-link" href="../../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
 </ul>
@@ -294,163 +332,250 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Praktikum Teknik Pemeriksaan Virus: Analisis data sekuensing virus SARS-CoV-2</h1>
+                  <div>
+        <div class="description">
+          Analisis Genom Virus SARS-CoV-2: Panduan Analisis Data Sekuensing .fastq hingga anotasi genom virus
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Genomic</div>
+                <div class="quarto-category">Bioinformatics</div>
+                <div class="quarto-category">SARS-CoV-2</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author"><a href="https://ibnuariyanto.github.io/">Ibnu Ariyanto</a> <a href="https://orcid.org/0000-0003-0576-0562" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+    </div>
+    <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Department of Clinical Microbiology, Faculty of Medicine, Universitas Indonesia
+            </p>
+        </div>
+    </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">June 16, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Research</h1>
+
+
+
+
+<p>Mata Kuliah Teknik Pemeriksaan Virus</p>
+<p>Kegiatan perkuliahan ini dilaksanakan pada High Performance Computer di Laboratorium Molekuler dan Virologi di Laboratorium Mikrobiologi Klinik FKUI <a href="https://ariyantoia.notion.site/hpcmikrofkui?source=copy_link">Halaman Booking HPC</a></p>
+<section id="workflow-analisis" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-analisis">Workflow analisis</h2>
+<p><img src="mapping.png" class="img-fluid"></p>
+</section>
+<section id="analisis-sekuens-qc-dan-reads-alignment" class="level2">
+<h2 class="anchored" data-anchor-id="analisis-sekuens-qc-dan-reads-alignment">Analisis sekuens, QC, dan reads alignment</h2>
+<ol type="1">
+<li>Aktivasi <em>environment</em> bioconda</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate MOOC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Buat folder sesuai nama kelompok
+<ol type="a">
+<li>Lalu masuk ke folder yang sudah dibuat</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> kelompok1 <span class="co">#kelompok1</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> kelompok2 <span class="co">#kelompok2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="a">
+<li>Copy paste ke terminal kode berikut untuk masuk ke folder</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> kelompok1 <span class="co">#kelompok1</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> kelompok2 <span class="co">#kelompok2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>Download sekuens dari Sequence Resource Analysis (SRA), setelah berhasil masuk ke</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastq-dump</span> <span class="at">--split-files</span> ERR5743893 <span class="co">#kelompok1</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">fastq-dump</span> <span class="at">--split-files</span> ERR5743894 <span class="co">#kelompok2</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li>Buat folder baru untuk analisis QC hasil sekuensing
+<ol type="a">
+<li>Kelompok 1</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> QC_Reports </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> kelompok1</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> ERR5743893_1.fastq ERR5743893_2.fastq <span class="at">--outdir</span> QC_Reports</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="a">
+<li>Kelompok 2</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> QC_Reports</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> kelompok2</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> ERR5743894_1.fastq ERR5743894_2.fastq <span class="at">--outdir</span> QC_Reports </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="a">
+<li>buka hasil analisis qc dalam folder QC_Reports
+<ul>
+<li>Buka folder kelompok</li>
+</ul>
+Pada halaman desktop klik “Home” buka folder masing-masing kelompok sesuai path yang ditunjukan dari run kode di bawah ini</li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">multiqc</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>Tahap sekuens Mapping
+<ol type="a">
+<li>buat folder untuk mapping dengan kembali ke folder kelompok di terminal terlebih dahulu</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> kelompok1 <span class="co">#kelompok1</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> kelompok2 <span class="co">#kelompok2</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/MN908947.fasta ~/kelompok1/ <span class="co">#kelompok1</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/MN908947.fasta ~/kelompok2/ <span class="co">#kelompok2</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> mapping</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>Tahapan alignment dengan sekuens SARS-CoV-2 yang sudah diketahui
+<ol type="a">
+<li><p>Membuat sekuens MN08947.fasta sebagai <em>genome reference</em></p></li>
+<li><p>buka folder mapping masing-masing kelompok</p></li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> index MN908947.fasta <span class="co">#dalam folder kelompok</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> faidx MN908947.fasta</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="co">#kembali ke home</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> kelompok1 <span class="co">#masuk ke folder kelompok 1</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> kelompok2 <span class="co">#masuk ke folder kelompok 2</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok1</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> mem MN908947.fasta ERR5743893_1.fastq ERR5743893_2.fastq <span class="op">&gt;</span> mapping/ERR5743893.sam</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok2</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa</span> mem MN908947.fasta ERR5743894_1.fastq ERR5743894_2.fastq <span class="op">&gt;</span> mapping/ERR5743894.sam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="a">
+<li>Mengubah file “.sam” menjadi “.bam”</li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> mapping</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lhrt</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok1</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-@</span> 20 <span class="at">-S</span> <span class="at">-b</span> ERR5743893.sam <span class="op">&gt;</span> ERR5743893.bam</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok2</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-@</span> 20 <span class="at">-S</span> <span class="at">-b</span> ERR5743894.sam <span class="op">&gt;</span> ERR5743894.bam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="a">
+<li>Mengurutkan sekuens genom berdasarkan referensi</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok1</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> sort <span class="at">-@</span> 32 <span class="at">-o</span> ERR5743893.sorted.bam ERR5743893.bam</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok2</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> sort <span class="at">-@</span> 32 <span class="at">-o</span> ERR5743894.sorted.bam ERR5743894.bam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="5" type="a">
+<li>Buat index mapping</li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok1</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> index ERR5743893.sorted.bam</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok2</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> index ERR5743894.sorted.bam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+</section>
+<section id="genomic-coverage" class="level2">
+<h2 class="anchored" data-anchor-id="genomic-coverage">Genomic coverage</h2>
+<p>Buka website</p>
+<p><a href="https://igv.org/app/">https://igv.org/app/</a></p>
+<p>Tutorial </p><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/die924mosh0?si=XQoKiyiig0seZFEv" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div><p></p>
+<ol type="1">
+<li><p>buka folder masing-masing kelompok dan masuk ke dalam folder melalui desktop</p>
+<ol type="a">
+<li>Klik Genomes → local</li>
+</ol>
+<p>masukan file .fasta dan.fai</p>
+<ol start="2" type="a">
+<li>Klik tracks → local</li>
+</ol>
+<p>masukan file .sorted.bam dan .sorted.bam.bwi</p></li>
+<li><p>Klik Genomes → pilih SARS-CoV-2 dari database</p>
+<ol type="a">
+<li>Klik tracks → local</li>
+</ol>
+<p>masukan file .sorted.bam dan .sorted.bam.bwi</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Protein S spike berada pada urutan genom nukleutida urutan berapa?</p>
+<p>Kelompok 2: 21,563-25,384</p>
+<p>Kelompok 1: 21,563-25,384</p>
+</div>
+</div></li>
+</ol>
+</section>
+<section id="variant-calling" class="level2">
+<h2 class="anchored" data-anchor-id="variant-calling">Variant calling</h2>
+<ol type="1">
+<li>Untuk variant calling praktikum ini akan digunakan freebayes</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok1</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">freebayes</span> <span class="at">-f</span> MN908947.fasta ~/kelompok1/mapping/ERR5743893.sorted.bam  <span class="op">&gt;</span> ERR5743893.vcf <span class="co">#kelompok1</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ex">bgzip</span> ERR5743893.vcf</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="ex">tabix</span> ERR5743893.vcf.gz</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="ex">bcftools</span> query <span class="at">-f</span> <span class="st">'%TYPE\n'</span> ERR5743893.vcf.gz <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="at">-c</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#kelompok2</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="ex">freebayes</span> <span class="at">-f</span> MN908947.fasta ~/kelompok2/mapping/ERR5743894.sorted.bam  <span class="op">&gt;</span> ERR5743894.vcf <span class="co">#kelompok2</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="ex">bgzip</span> ERR5743894.vcf</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="ex">tabix</span> ERR5743894.vcf.gz</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="ex">bcftools</span> query <span class="at">-f</span> <span class="st">'%TYPE\n'</span> ERR5743894.vcf.gz <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="at">-c</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Berapa SNPs dan Indel yang anda peroleh?</p>
+<p>Kelompok 2: 4 INDEL, 2 MNP, 89 SNP</p>
+<p>Kelompok 1: 1 INDEL 75 SNP</p>
+</div>
 </div>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="research-projects" class="level2">
-<h2 class="anchored" data-anchor-id="research-projects">Research Projects</h2>
-</section>
-<section id="ongoing" class="level2">
-<h2 class="anchored" data-anchor-id="ongoing">Ongoing</h2>
-<section id="car-nk-project" class="level3">
-<h3 class="anchored" data-anchor-id="car-nk-project">CAR-NK Project</h3>
-<p>Initial development of artificial antigen-presenting cells (aAPC) for Natural killer cell expansion, the acceleration of the first CAR-NK cells in Indonesia The project is a collaboration study with Prof.&nbsp;Alex Mc Lellan from the Department of Microbiology and Immunology at Otago University, New Zealand. I have gotten a small grant from DIPI to start the project in the Department of Clinical Microbiology, Faculty of Medicine, Universitas Indonesia. My supervisor from UI is dr. Rina la Distia Nora, Sp.M(K)., PhD &amp; Fithriyah, PhD. (https://dipi.id/awarded-proposal-dipis-small-research-grant-2024/). (ongoing)</p>
-</section>
-<section id="immunology-of-hiv-patients" class="level3">
-<h3 class="anchored" data-anchor-id="immunology-of-hiv-patients">Immunology of HIV Patients</h3>
-<p>The collaborative research between Universitas Indonesia and Curtin University on Cytomegalovirus co-infection in HIV patients. We have discovered the role of several immune cells linked with clinical outcomes:</p>
-<ul>
-<li>CD4 and CD8 T-cells</li>
-<li>Natural killer cells</li>
-<li>Gamma Delta T cells (ongoing)</li>
-</ul>
-</section>
-<section id="cytomegalovirus" class="level3">
-<h3 class="anchored" data-anchor-id="cytomegalovirus">Cytomegalovirus</h3>
-<p>The CMV research has been done in HIV patients starting ART, followed by 5 years in the JakCCANDO Study.</p>
-<p>Currently working with Biomedical Science UI PhD student Isti Anindya to understand CMV’s role in the cognitive development of Autism Spectrum Disorder (ASD) children (the principal investigator was Prof.&nbsp;Amin Subandrio). (ongoing)</p>
-<p>We have been investigating CMV IL10 and human IL10R SNPs with Curtin/UWA Researcher Shelley Waters. The research also part of the Master Research of Yudha Fariska (master Student of Biomedical Science) (ongoing)</p>
-</section>
-<section id="molecular-viability-assay-of-mycobacterium-lepra" class="level3">
-<h3 class="anchored" data-anchor-id="molecular-viability-assay-of-mycobacterium-lepra">Molecular Viability Assay of Mycobacterium lepra</h3>
-<p>I am co-supervisor of Clara Imaniar (master Student of Biomedical Science). The main supervisor is Prof Yeva Rosana (Dept. Microbiology FMUI). Our main goal is to develop a molecular method to identify live M. lepra from clinical samples. (ongoing)</p>
-</section>
-</section>
-<section id="finished" class="level2">
-<h2 class="anchored" data-anchor-id="finished">Finished</h2>
-<section id="coincide-project-2024-2025" class="level3">
-<h3 class="anchored" data-anchor-id="coincide-project-2024-2025">COINCIDE Project (2024-2025)</h3>
-<p>I am participating in the COINCIDE Project. Working under the Prof.&nbsp;Anis Karuniawati Project, I am collaborating with Soe You Naing - Utrecht University. The project involves microbiology specialist student dr.Lili. (end on April)</p>
-</section>
-<section id="vaccine-development-2021-2023" class="level3">
-<h3 class="anchored" data-anchor-id="vaccine-development-2021-2023">Vaccine Development (2021-2023)</h3>
-<p>I am working with a Master’s student in biomedical science at the Faculty of Medicine (Raisha Muhayya), Universitas Indonesia. Her work is to develop recombinant SARS-CoV-2 vaccine construction. The vaccine design used a bioinformatic approach to predict the optimal epitope for T-cell response. (end)</p>
-</section>
-<section id="infectious-diseases-molecular-diagnostics-development-2021-2022" class="level3">
-<h3 class="anchored" data-anchor-id="infectious-diseases-molecular-diagnostics-development-2021-2022">Infectious Diseases Molecular Diagnostics Development (2021-2022)</h3>
-<p>Work with a private company to validate qPCR kits (end)</p>
-</section>
-</section>
-<section id="journal-reviewer" class="level2">
-<h2 class="anchored" data-anchor-id="journal-reviewer">Journal Reviewer</h2>
-<p>I have participated in a peer review in :</p>
-<p>Dovepress (Journal of Inflammation Research &amp; Journal Infection and Drug Resistance)</p>
-<p>Journal of Infection in Developing Countries (JIDC)</p>
-<p>Acta Tropicana (Elsevier)</p>
-<p>AIDS Research and Therapy (Springer Nature)</p>
-<p>Critical Public Health (Taylor &amp; Francis)</p>
-<p>Frontiers Microbiology (Frontiers)</p>
-<p>Human Immunology (Elsevier)</p>
-<p>Frontiers Immunology</p>
-<p>Aids Care (Elsevier)</p>
-</section>
-<section id="organisation" class="level2">
-<h2 class="anchored" data-anchor-id="organisation">Organisation</h2>
-<p>Indonesia Microbiology Association (PERMI) - PERMI Jakarta Secretary 2024-2027</p>
-</section>
-<section id="publication" class="level2">
-<h2 class="anchored" data-anchor-id="publication">Publication</h2>
-<section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section">2025</h3>
-<p>Anindya I, Sekartini R, Ariyanto IA, Wiguna T, Sari NP, Rahayu YS, et al.&nbsp;Cytomegalovirus-reactive IgG correlates with increased IL-6 and IL-1β levels, affecting eating behaviours and tactile sensitivity in children with autism. Biomedicines [Internet]. 2025 Feb 2 [cited 2025 Feb 2];13(2):338. Available from: https://www.mdpi.com/2227-9059/13/2/338</p>
-<p>Ariyanto IA, Wijaya IP, Karim B, Lee S, Price P. Levels of Cytomegalovirus-reactive antibody and γδ T cell phenotypes align with vascular changes in people living with HIV. Viral Immunol [Internet]. 2025 Jan 2 [cited 2025 Jan 6]; Available from: https://www.liebertpub.com/doi/10.1089/vim.2024.0075</p>
-</section>
-<section id="section-1" class="level3">
-<h3 class="anchored" data-anchor-id="section-1">2024</h3>
-<p>Kartika AAA, Dewi BE, Ariyanto IA, Sudiro TM. Cassia alata butanol fraction anti-inflammatory effect on early expression of NFκB and cytokines in DENV-1 infected PBMCs. J Appl Pharm Sci [Internet]. 2024; Available from: https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;citation_for_view=X_K_5ewAAAAJ:JV2RwH3_ST0C</p>
-<p>Ariyanto IA, Octaviana F, Wardah C, Beti E, Widyaningtyas S, Bela B, et al.&nbsp;Neuropathy among drug resistant HIV Patients treated in Jakarta. J Infect Dev Ctries [Internet]. 2024 Nov 30;18(11):1640–4. Available from: https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;citation_for_view=X_K_5ewAAAAJ:k_IJM867U9cC</p>
-<p>Anindya I, Ariyanto IA, Soebandrio A. Prevalence of Cytomegalovirus Infection among Children with and with out Autism in Jakarta, Indonesia. Hosts Viruses [Internet]. 2024;11:94–100. Available from: https://researcherslinks.com/current-issues/Prevalence-of-Cytomegalovirus-Infection/6/1/10011/html</p>
-<p>Amanah A, Ariyanto IA, Bela B, Primanagara R, Sudarmono P. Evaluation of the effect of mRNA and inactivated SARS-CoV-2 vaccines on the levels of cytokines IL-2, IFN-γ, and anti-RBD spike SARS-CoV-2 antibodies in people living with HIV (PLHIV). Biomedicines [Internet]. 2024 Sep 18 [cited 2024 Sep 20];12(9):2115. Available from: https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;citation_for_view=X_K_5ewAAAAJ:iH-uZ7U-co4C</p>
-<p>Muhayya SR, Biomedical Sciences, Faculty of Medicine, Universitas Indonesia, Jl. Salemba Raya No.&nbsp;6, Senen, Central Jakarta 10430, Jakarta, Indonesia, Ariyanto IA, Widianingtyas S, Subiantistha T, Bela B, et al.&nbsp;SARS-CoV-2 multi-epitope subunit vaccine proof-of-concept derived from the insilico study with protein expression in Escherichia coli BL21. Pharm J Indones [Internet]. 2024 Jun 30;9(2):71–8. Available from: https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=X_K_5ewAAAAJ&amp;sortby=pubdate&amp;citation_for_view=X_K_5ewAAAAJ:r0BpntZqJG4C</p>
-<p>Amanah A, Bela B, Widyaningtyas ST, Ariyanto IA, Sudarmono P. A review of the relationship between CD4 T-lymphocytes and efficacy of COVID-19 vaccines in people living with HIV (PLWH). In: THE 7TH BIOMEDICAL ENGINEERING’S RECENT PROGRESS IN BIOMATERIALS, DRUGS DEVELOPMENT, AND MEDICAL DEVICES: The 15th Asian Congress on Biotechnology in conjunction with the 7th International Symposium on Biomedical Engineering (ACB-ISBE 2022) [Internet]. AIP Publishing; 2024. Available from: https://pubs.aip.org/aip/acp/article-lookup/doi/10.1063/5.0200961</p>
-</section>
-<section id="section-2" class="level3">
-<h3 class="anchored" data-anchor-id="section-2">2023</h3>
-<p>Waters S, Allcock RJN, Lee S, Downing J, Ariyanto I, Leary S, et al.&nbsp;Do variations in the HLA-E ligand encoded by UL40 distinguish individuals susceptible to HCMV disease? Hum Immunol [Internet]. 2023 Feb;84(2):75–9. Available from: http://dx.doi.org/10.1016/j.humimm.2022.11.005</p>
-</section>
-<section id="section-3" class="level3">
-<h3 class="anchored" data-anchor-id="section-3">2022</h3>
-<p>Rahmawaty RG, Aziz MH, Dachwan C, Sari EY, Ariyanto IA, Wahid M. Challenges for Legionella pneumophila detection in Indonesia. JCMID [Internet]. 2022 Dec 25 [cited 2025 Jan 17];2(2):44–6. Available from: https://www.jcmid.id/index.php/JCMID/article/view/35</p>
-<p>Ariyanto IA, Estiasari R, Lee S, Price P. Γδ T cell subpopulations associate with recovery of memory function in Indonesian HIV patients starting antiretroviral therapy. AIDS Res Hum Retroviruses [Internet]. 2022 Sep;38(9):764–70. Available from: http://dx.doi.org/10.1089/AID.2021.0171</p>
-<p>Waters S, Lee S, Ariyanto I, Kresoje N, Leary S, Munyard K, et al.&nbsp;Sequencing of the viral UL111a gene directly from clinical specimens reveals variants of HCMV-encoded IL-10 that are associated with altered immune responses to HCMV. Int J Mol Sci [Internet]. 2022 Apr 22;23(9):4644. Available from: http://dx.doi.org/10.3390/ijms23094644</p>
-<p>Ariyanto IA, Estiasari R, Karim B, Wijaya IP, Bela B, Soebandrio A, et al.&nbsp;Which NK cell populations mark the high burden of CMV present in all HIV patients beginning ART in Indonesia? AIDS Res Ther [Internet]. 2022 Mar 15;19(1):16. Available from: http://dx.doi.org/10.1186/s12981-022-00439-2</p>
-<p>Waters S, Lee S, Ariyanto I, Leary S, Munyard K, Gaudieri S, et al.&nbsp;Variants of HCMV UL18 sequenced directly from clinical specimens associate with antibody and T-cell responses to HCMV. Int J Mol Sci [Internet]. 2022 Oct 26;23(21):12911. Available from: http://dx.doi.org/10.3390/ijms232112911</p>
-</section>
-<section id="section-4" class="level3">
-<h3 class="anchored" data-anchor-id="section-4">2021</h3>
-<p>Wijaya IP, Karim B, Azizi MS, Ariyanto I, Mansjoer A, Yunihastuti E, et al.&nbsp;Cytomegalovirus may influence vascular endothelial health in Indonesian HIV-infected patients after 5 years on ART. AIDS Res Ther [Internet]. 2021 Nov 11;18(1):83. Available from: http://dx.doi.org/10.1186/s12981-021-00410-7</p>
-<p>Waters S, Agostino M, Lee S, Ariyanto I, Kresoje N, Leary S, et al.&nbsp;Sequencing directly from clinical specimens reveals genetic variations in HCMV-encoded chemokine receptor US28 that may influence antibody levels and interactions with human chemokines. Microbiol Spectr [Internet]. 2021 Oct 31;9(2):e0002021. Available from: http://dx.doi.org/10.1128/Spectrum.00020-21</p>
-<p>Edwar L, Ariyanto IA, Tanudjaja SA, Sitompul R, Lee S, Price P. Interleukin-1A may illuminate differential effects of the retinal artery caliber in HIV patients. Mol Cell Biomed Sci [Internet]. 2021 Jul 6;5(2):88. Available from: https://cellbiopharm.com/ojs/index.php/MCBS/article/view/197</p>
-<p>Edwar L, Ha P, Ariyanto IA, Estiasari R, Sitompul R, Lee S, et al.&nbsp;A TNF block genotype may influence CMV retinitis in HIV patients without affecting systemic viral replication. Curr HIV Res [Internet]. 2021;19(1):96–9. Available from: https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;citation_for_view=X_K_5ewAAAAJ:4DMP91E08xMC</p>
-<p>Ariyanto IA, Lee S, Estiasari R, Edmands J, Bela B, Soebandrio A, et al.&nbsp;Understanding the effects of CMV on γδ T-cell populations in HIV patients starting antiretroviral therapy. Clin Immunol [Internet]. 2021 May;226(108696):108696. Available from: http://dx.doi.org/10.1016/j.clim.2021.108696</p>
-</section>
-<section id="section-5" class="level3">
-<h3 class="anchored" data-anchor-id="section-5">2020</h3>
-<p>Noviantari A, Rinendyaputri R, Ariyanto I. Differentiation ability of rat‐mesenchymal stem cells from bone marrow and adipose tissue to neurons and glial cells. Indones J Biotechnol [Internet]. 2020 Jun 26;25(1):43. Available from: https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;citation_for_view=X_K_5ewAAAAJ:aqlVkmm33-oC</p>
-<p>Gaff J, Octaviana F, Pillay P, Mbenda HGN, Ariyanto IA, Gan JA, et al.&nbsp;TNF-block genotypes influence susceptibility to HIV-associated sensory neuropathy in Indonesians and South Africans. Int J Mol Sci [Internet]. 2020 Jan 7;21(2):380. Available from: https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;citation_for_view=X_K_5ewAAAAJ:ufrVoPGSRksC</p>
-<p>Estiasari R, Aryanto I, Lee S, Pramana S, Djauzi S, Price P. Determinants of cognitive health in Indonesian HIV patients beginning antiretroviral therapy. J Neurovirol [Internet]. 2020 Feb;26(1):32–40. Available from: https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;citation_for_view=X_K_5ewAAAAJ:eQOLeE2rZwMC</p>
-<p>Wulandari EAT, Wijaya IP, Karim B, Ariyanto I, Tanudjaja SA, Lee S, et al.&nbsp;Periodontitis and Cytomegalovirus associate with atherosclerosis among HIV patients after 5 years on ART. J Acquir Immune Defic Syndr [Internet]. 2020 Oct 1;85(2):195–200. Available from: https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;citation_for_view=X_K_5ewAAAAJ:qxL8FJ1GzNcC</p>
-</section>
-<section id="section-6" class="level3">
-<h3 class="anchored" data-anchor-id="section-6">2019</h3>
-<p>Ariyanto IA, Estiasari R, Edwar L, Makwana N, Lee S, Price P. Characterization of natural killer cells in HIV patients beginning therapy with a High burden of Cytomegalovirus. Immunol Invest [Internet]. 2019 May;48(4):345–54. Available from: https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;citation_for_view=X_K_5ewAAAAJ:Y0pCki6q_DkC</p>
-<p>Edwar L, Karim B, Wijaya IP, Ariyanto I, Tanudjaja SA, Estiasari R, et al.&nbsp;Factors affecting the health of retinal vessels in human immunodeficiency virus patients beginning anti-Retroviral therapy. AIDS Res Hum Retroviruses [Internet]. 2019 Jun;35(6):529–35. Available from: https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;citation_for_view=X_K_5ewAAAAJ:W7OEmFMy1HYC</p>
-<p>Gaff J, Octaviana F, Ariyanto I, Cherry C, Laws SM, Price P. Polymorphisms in CAMKK2 associate with susceptibility to sensory neuropathy in HIV patients treated without stavudine. J Neurovirol [Internet]. 2019 Dec;25(6):814–24. Available from: https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;citation_for_view=X_K_5ewAAAAJ:YsMSGLbcyi4C</p>
-</section>
-<section id="section-7" class="level3">
-<h3 class="anchored" data-anchor-id="section-7">2018</h3>
-<p>Waters S, Brook E, Lee S, Estiasari R, Ariyanto I, Price P. HIV patients, healthy aging and transplant recipients can reveal the hidden footprints of CMV. 2018 Feb 1;187:107–12. Available from: https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;citation_for_view=X_K_5ewAAAAJ:UeHWp8X0CEIC</p>
-<p>Mountford J, Octaviana F, Estiasari R, Setiawan DD, Ariyanto I, Lee S, et al.&nbsp;Ex-vivo expression of chemokine receptors on cells surrounding cutaneous nerves in patients with HIV-associated sensory neuropathy. AIDS [Internet]. 2018 Feb 20;32(4):431–41. Available from: https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;citation_for_view=X_K_5ewAAAAJ:zYLM7Y9cAGgC</p>
-<p>Ariyanto IA, Estiasari R, Waters S, Wulandari EAT, Fernandez S, Lee S, et al.&nbsp;Active and persistent Cytomegalovirus infections affect T cells in young adult HIV patients commencing antiretroviral therapy. Viral Immunol [Internet]. 2018 Apr 24;31(6):472–9. Available from: https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;citation_for_view=X_K_5ewAAAAJ:Tyk-4Ss8FVUC</p>
-</section>
-<section id="section-8" class="level3">
-<h3 class="anchored" data-anchor-id="section-8">2017</h3>
-<p>Dmello DM, Ariyanto I, Estiasari R, Halstrom S, Gaff J, Lee S, et al.&nbsp;Polymorphisms in IL10 may alter CD4 T-cell counts in Indonesian HIV patients beginning antiretroviral therapy. Hum Immunol [Internet]. 2017 Apr;78(4):387–90. Available from: https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;citation_for_view=X_K_5ewAAAAJ:u5HHmVD_uO8C</p>
-<p>Karim B, Wijaya IP, Rahmaniyah R, Ariyanto I, Waters S, Estiasari R, et al.&nbsp;Factors affecting affect cardiovascular health in Indonesian HIV patients beginning ART. AIDS Res Ther [Internet]. 2017 Aug 31;14(1):52. Available from: https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;citation_for_view=X_K_5ewAAAAJ:2osOgNQ5qMEC</p>
-</section>
-<section id="section-9" class="level3">
-<h3 class="anchored" data-anchor-id="section-9">2013</h3>
-<p>Nuriliani A, Agus Ariyanto I, Ria Santi M, Mahendra A, Erly Sintya Dewi NW, Nurul Huda AL, et al.&nbsp;Aktivitas Sitotoksik dan Apoptosis Ekstrak Spons Spesies A Anggota Ordo Astroporida terhadap Sel HeLa (Cervical Cancer Cell Line). Biota : Jurnal Ilmiah Ilmu-Ilmu Hayati [Internet]. 2013 Feb 1;18(1):45–53. Available from: https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;citation_for_view=X_K_5ewAAAAJ:9yKSN-GCB0IC</p>
-
-
-</section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ariyanto2025,
+  author = {Ariyanto, Ibnu},
+  title = {Praktikum {Teknik} {Pemeriksaan} {Virus:} {Analisis} Data
+    Sekuensing Virus {SARS-CoV-2}},
+  date = {2025-06-16},
+  url = {https://ibnuariyanto.github.io/post/2025-06-14-Analisis-genom-sars-cov-2},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ariyanto2025" class="csl-entry quarto-appendix-citeas" role="listitem">
+Ariyanto, Ibnu. 2025. <span>“Praktikum Teknik Pemeriksaan Virus:
+Analisis Data Sekuensing Virus SARS-CoV-2.”</span> June 16, 2025. <a href="https://ibnuariyanto.github.io/post/2025-06-14-Analisis-genom-sars-cov-2">https://ibnuariyanto.github.io/post/2025-06-14-Analisis-genom-sars-cov-2</a>.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

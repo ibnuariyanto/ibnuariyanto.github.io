@@ -1,0 +1,130 @@
+---
+title: "Simple guide: application of AI for literature search in Bahasa"
+format: html
+description: "Panduan Instalasi perplexica: alternatif versi open-source untuk perplexity"
+author:
+  - name: Ibnu Ariyanto
+    url: https://ibnuariyanto.github.io/
+    orcid: 0000-0003-0576-0562
+    affiliation: Department of Clinical Microbiology, Faculty of Medicine, Universitas Indonesia
+date: 06-23-2025
+categories: [Open source, Ollama, AI] # self-defined categories
+citation: 
+  url: https://ibnuariyanto.github.io/post/2025-06-23-Flow-Perplexica/ 
+image: title.png
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+---
+
+## Pendahuluan
+
+Berikut adalah panduan instalasi **perplexica**, sebuah mesin pencari berbasis AI open-source yang dapat dijalankan secara lokal. Panduan ini mengacu pada informasi resmi dari repositori GitHub Perplexica dan sumber terkait, serta disusun untuk memudahkan pengguna dalam proses instalasi.
+
+## Prasyarat
+
+Sebelum memulai, pastikan Anda memiliki:
+
+1. **Docker** dan **Docker Compose** terinstal di sistem Anda (Linux, Windows, atau Mac).
+2. **Ollama** (opsional, untuk menjalankan model bahasa lokal seperti Llama3.1). Jika Anda ingin menggunakan model lokal, pastikan Ollama terinstal.
+3. **Node.js** dan **npm** (jika Anda ingin menjalankan Perplexica tanpa Docker).
+4. Koneksi internet untuk mengunduh dependensi dan model.
+5. Spesifikasi perangkat:
+   - RAM minimal 8GB (disarankan 16GB untuk performa optimal).
+   - GPU (opsional, untuk mempercepat pemrosesan model lokal).
+
+## Langkah-langkah Instalasi
+
+### 1. Klon Repositori Perplexica
+
+Buka terminal dan jalankan perintah berikut untuk mengunduh kode sumber Perplexica dari GitHub:
+
+```bash
+git clone https://github.com/ItzCrazyKns/Perplexica.git
+cd Perplexica
+```
+
+### 2. Instalasi Menggunakan Docker (Disarankan)
+
+Docker adalah cara termudah untuk menjalankan Perplexica karena semua dependensi dikelola secara otomatis.
+
+1. **Konfigurasi File Konfigurasi**
+   - Di dalam direktori Perplexica, cari file sample.config.toml dan salin ke config.toml:
+     ```bash
+     cp sample.config.toml config.toml
+     ```
+   - Buka config.toml dengan editor teks (misalnya, nano config.toml) dan sesuaikan pengaturan:
+     - **Ollama API URL**: Jika menggunakan Ollama, masukkan URL seperti http://host.docker.internal:11434 (port default Ollama). Jika Ollama diinstal di port lain, sesuaikan nomor portnya.
+     - **Model LLM**: Tentukan model yang ingin digunakan, misalnya llama3.1:8b-instruct-q6_K untuk model chat dan nomic-embed-text:137m-v1.5-fp16 untuk embedding.
+
+2. **Jalankan Docker Compose**
+   - Dari direktori Perplexica, jalankan:
+     ```bash
+     docker-compose up -d
+     ```
+   - Perintah ini akan mengunduh image Docker untuk SearxNG (mesin pencari meta), backend, dan frontend Perplexica, lalu menjalankan tiga kontainer. Proses ini mungkin memakan waktu beberapa menit tergantung kecepatan internet.
+
+3. **Akses Perplexica**
+   - Setelah kontainer berjalan, buka browser dan akses http://localhost:3000.
+   - Untuk mengatur model Ollama, klik ikon **Settings** (roda gigi di kiri bawah) dan pilih model chat serta embedding yang diinginkan.
+
+### 3. Instalasi Ollama (Jika Menggunakan Model Lokal)
+
+Jika Anda ingin menjalankan model bahasa lokal seperti Llama3.1, ikuti langkah berikut:
+
+1. **Instal Ollama**
+   - Unduh dan instal Ollama dari situs resminya: [https://ollama.com/](https://ollama.com/).
+   - Untuk Linux, jalankan:
+     ```bash
+     curl -fsSL https://ollama.com/install.sh | sh
+     ```
+
+2. **Unduh Model**
+   - Jalankan perintah untuk mengunduh model yang diinginkan, misalnya:
+     ```bash
+     ollama pull llama3.1:8b-instruct-q6_K
+     ollama pull nomic-embed-text:latest
+     ```
+
+3. **Konfigurasi Ollama untuk Jaringan**
+   - Pastikan Ollama dapat diakses oleh Perplexica dengan menambahkan pengaturan jaringan. Edit file konfigurasi Ollama atau tambahkan baris berikut di docker-compose.yml Perplexica:
+     ```yaml
+     extra_hosts:
+       - "host.docker.internal:host-gateway"
+     ```
+
+## Menggunakan Perplexica
+
+Untuk menggunakan Perplexica cukup mudah. Kita dapat membuka halaman web yang menjadi alamat localhost yaitu: http://localhost:3000.
+
+- Tampilan docker desktop, klik *run* pada grup Perplexica
+  ![Docker Desktop](docker-desktop.png)
+
+- Setelah dipastikan run, anda perlu mengaktivasi ollama terlebih dahulu, dengan klik applikasi *ollama*. Untuk memastikan baik Ollama dan Docker sudah berjalan, kita bisa cek pada taskbar. Gambar pada baris kedua, urutan pertama dan kedua dari kiri merupakan logo Docker dan Ollama.
+  ![Taskbar](taskbar.png)
+
+- Waktunya kita diskusi dengan asisten peneliti!. Dalam kesempatan ini saya mencoba untuk melakukan pencarian pada topik antibodi terhadap rpfb dan dpfb bakteri MTB.
+  - Berikut tampilan yang kita peroleh
+    ![Perplexica](perplexica-search.png)
+
+```{mermaid}
+%%| fig-cap: "Diagram alur instalasi dan penggunaan Perplexica"
+flowchart TD
+    A[Mulai] --> B[Install Prasyarat]
+    B --> C[Klon Repositori]
+    C --> D[Konfigurasi]
+    D --> E{Gunakan Model Lokal?}
+    E -- Ya --> F[Install Ollama]
+    F --> G[Unduh Model]
+    G --> H[Konfigurasi Jaringan]
+    H --> I[Jalankan Docker Compose]
+    E -- Tidak --> I
+    I --> J[Akses Perplexica]
+    J --> K[Selesai]
+```
+
+## Kesimpulan
+
+Ini adalah panduan instalasi Perplexica, sebuah mesin pencari berbasis AI open-source yang dapat dijalankan secara lokal. Panduan ini juga menyertakan contoh penggunaan dengan topik antibodi terhadap protein bakteri MTB. Selamat mencoba
+
+Referensi:
+[Perplexica github](https://github.com/ItzCrazyKns/Perplexica)
+ 

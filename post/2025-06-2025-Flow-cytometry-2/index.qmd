@@ -1,0 +1,141 @@
+---
+title: "Flow cytometry analysis of NK cell in Bahasa"
+description: "Analisis Flow Cytometry Sel Natural Killer"
+author:
+  - name: Ibnu Ariyanto
+    url: https://ibnuariyanto.github.io/
+    orcid: 0000-0003-0576-0562
+    affiliation: Department of Clinical Microbiology, Faculty of Medicine, Universitas Indonesia
+date: 06-23-2025
+categories: [Flow Cytometry, FlowJo] # self-defined categories
+citation: 
+  url: https://ibnuariyanto.github.io/post/2025-06-23-Flow-cytometry-2/ 
+image: preview-image.png
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+---
+
+
+
+# Penggunaan FlowJo Untuk Analisis Flow Cytometry 
+
+### **Judul Pelatihan**
+
+**Analisis Flow Cytometry sel Natural Killer**
+
+### **Tujuan Pelatihan**
+
+1. Peserta mampu menginstal dan mengaktivasi FlowJo secara mandiri.
+2. Peserta memahami antarmuka FlowJo dan fitur dasarnya.
+3. Peserta terampil dalam teknik gating, overlay, analisis batch, dan ekspor data ke Excel untuk analisis sel T CD8 dan sel NK.
+4. Peserta mampu melakukan analisis secara mandiri untuk gating perforin dan granzyme. 
+
+Modul ini merupakan lanjutan dari modul sebelumnya [Pengantar Analisis Flow Cytometry](https://ibnuariyanto.github.io/post/2025-05-20-Flow-cytometry/)
+---
+
+### **Modul 1: Analisis marka aktivasi dan inhibisi pada sel Natural Killer**
+
+**Durasi**: 1 jam
+
+**Materi**:
+
+1. Analisis data sel NK untuk melihat ekspresi NKG2C dan LIR1 (contoh dataset disediakan).
+[file latihan analisis](https://drive.google.com/drive/folders/1vIxzMRKxj798V7cWSqNik0gzWuu-3gTV?usp=sharing)
+2. Interpretasi hasil:
+    - Frekuensi sel NK (Persentase CD56Lo dan CD56Hi).
+    - Eksplorasi sel NK (Strategi gating khusus sel NK, ekspresi NKG2C, dan LIR1)
+    - Perbandingan antar kelompok (HIV vs kontrol).
+
+**Aktivitas**:
+
+- Presentasi hasil dan diskusi kelompok.
+
+   Video panduan
+    
+    {{< video "https://www.youtube.com/embed/f1J2p67_J7k" >}}
+    
+---
+
+### **Modul 2: Tanya Jawab dan Evaluasi**
+
+**Aktivitas**:
+
+- Diskusi masalah umum (misal: gating tidak konsisten, error ekspor data).
+- Kuis singkat untuk evaluasi pemahaman.
+- Pembagian sertifikat partisipasi (opsional).
+
+---
+
+### **Prasyarat Peserta**
+
+1. Pemahaman dasar flow cytometry (prinsip scatter plot, fluorokrom).
+2. Familiar dengan marker imunologi sel T dan sel NK.
+
+### **Software dan Perangkat Pendukung**
+
+1. FlowJo v10.8+ (tersedia versi trial).
+2. Dataset ( data FCS sel NK).
+3. Microsoft Excel/Google Sheets.
+
+### **Referensi Tambahan**
+
+1. Buku panduan FlowJo (tersedia di situs resmi).
+2. Video tutorial FlowJo Channel di YouTube.
+
+### **Referensi sumber dataset**
+Ariyanto, I.A.; Estiasari, R.; Edwar, L.; Makwana, N.; Lee, S.; Price, P. Characterization of Natural Killer Cells in HIV Patients Beginning Therapy with a High Burden of Cytomegalovirus. Immunol. Invest. 2019, 48, 345–354, doi:10.1080/08820139.2018.1538236.
+  
+
+
+
+## Panduan Teknis Aplikasi Flowjo 
+### Workspace pada Aplikasi FlowJo
+
+![ ](workspace-flowjo.png)
+
+**Gambar 1**. Tampilan jendela workspace.
+
+Jendela Workspace terorganisir dalam tiga bagian utama (seperti pada gambar di atas):
+
+### 1) Tasks (Tugas) dan Bands (Pita)
+- **Tasks** mengelompokkan band sejenis bersama, dan muncul sebagai "tab" pada Workspace.  
+- Terdapat **Workspace task** (ditunjukkan di atas) yang mengelompokkan operasi spesifik seperti:
+  - Menambahkan statistik
+  - Melihat properti sampel
+  - Membuat/memodifikasi grup  
+
+- **Bands** mengelompokkan aksi serupa. Contoh:
+  - Band **Groups**: berisi aksi pembuatan grup, penyalinan gate, dan pengelompokan sampel.
+
+### 2) Groups (Grup)
+- Area ini menampilkan daftar grup dengan informasi:
+  - Jumlah sampel (**Size**)
+  - Peran grup (**Role**): kompensasi, kontrol, sampel uji, dll.
+- Klik dua kali nama grup untuk memodifikasi properti grup.
+
+### 3) Samples dan Analisis Sampel
+- Menampilkan daftar sampel dan analisis dari grup yang dipilih (contoh: Panel 2.2 di atas).
+- Kolom default yang ditampilkan:
+  - **Statistic** (statistik)
+  - **#Cells** (jumlah sel)
+- Kolom tambahan bisa ditambahkan untuk menampilkan:
+  - Keyword (metadata)
+  - Protokol pewarnaan
+  - Anotasi
+- Sampel akan diurutkan berdasarkan:
+  - Keyword "well id" (jika ada)
+  - Preferensi penamaan sampel (jika "well id" tidak ditemukan).
+
+---
+
+### Indikator Tambahan pada Workspace
+#### 1) **Indicator Badges**
+- FlowJo menggunakan **warna dan simbol** untuk merepresentasikan:
+  - Status sampel (terkompensasi vs. tidak, valid vs. tidak valid)
+  - Anotasi internal (file terbuka vs. tertutup)
+  - [Detail badge lengkap lihat di sini](#).
+
+#### 2) **Group Colors**
+- Warna teks digunakan untuk identifikasi grup:
+  - Setiap grup memiliki warna unik
+  - Populasi dalam grup mewarisi karakteristik warna teks grupnya
+  - [Pelajari lebih lanjut tentang grup di sini](#).

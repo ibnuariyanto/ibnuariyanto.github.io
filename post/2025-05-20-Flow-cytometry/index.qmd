@@ -26,6 +26,17 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 2. Peserta memahami antarmuka FlowJo dan fitur dasarnya.
 3. Peserta terampil dalam teknik gating, overlay, analisis batch, dan ekspor data ke Excel untuk analisis imunaktivasi sel T.
 
+### **Prasyarat Peserta**
+
+1. Pemahaman dasar flow cytometry (prinsip scatter plot, fluorokrom).
+2. Familiar dengan marker imunologi sel T.
+
+### **Software dan Perangkat Pendukung**
+
+1. FlowJo v10.8+ (tersedia versi trial).
+2. Dataset contoh (misal: data FCS sel T teraktivasi).
+3. Microsoft Excel/Google Sheets.
+
 ---
 
 ### **Rincian Silabus**
@@ -44,7 +55,6 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 4. Troubleshoot instalasi (error umum dan solusi).
     
     **Aktivitas**:
-    
     - Demo instalasi oleh instruktur.
     - Peserta melakukan instalasi dan aktivasi mandiri.
 
@@ -64,7 +74,6 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 4. Penyimpanan workspace (*.wsp*).
     
     **Aktivitas**:
-    
     - Latihan impor data sampel (misal: data sel T CD3+/CD4+/CD8+).
     - Eksplorasi fitur dasar antarmuka.
 
@@ -88,7 +97,6 @@ draft: false # setting this to `true` will prevent your post from appearing on y
     - Ekspor tabel sebagai *.csv* atau *.xlsx*.
     
     **Aktivitas**:
-    
     - Studi kasus: Analisis aktivasi sel T (misal: IFN-γ+ setelah stimulasi).
     - Praktik gating, overlay, dan analisis batch.
 
@@ -96,39 +104,28 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 
 ### **Modul 4: Studi Kasus dan Simulasi**
 
-**Durasi**: 1 jam
-
 **Materi**:
 
 1. Analisis data imunaktivasi sel T (contoh dataset disediakan).
 2. Interpretasi hasil:
     - Frekuensi sel T teraktivasi (CD25+/CD69+).
-    - Perbandingan antar kelompok (stimulasi vs kontrol).**Aktivitas**:
-- Peserta bekerja mandiri dengan dataset.
-- Presentasi hasil dan diskusi kelompok.
+    - Perbandingan antar kelompok (stimulasi vs kontrol).
+    
+    **Aktivitas**:
+    - Peserta bekerja mandiri dengan dataset.
+    - Presentasi hasil dan diskusi kelompok.
 
 ---
 
 ### **Modul 5: Tanya Jawab dan Evaluasi**
 
-**Aktivitas**:
-
-- Diskusi masalah umum (misal: gating tidak konsisten, error ekspor data).
-- Kuis singkat untuk evaluasi pemahaman.
-- Pembagian sertifikat partisipasi (opsional).
+  **Aktivitas**:
+  
+  - Diskusi masalah umum (misal: gating tidak konsisten, error ekspor data).
+  - Kuis singkat untuk evaluasi pemahaman.
+  - Pembagian sertifikat partisipasi (opsional).
 
 ---
-
-### **Prasyarat Peserta**
-
-1. Pemahaman dasar flow cytometry (prinsip scatter plot, fluorokrom).
-2. Familiar dengan marker imunologi sel T.
-
-### **Software dan Perangkat Pendukung**
-
-1. FlowJo v10.8+ (tersedia versi trial).
-2. Dataset contoh (misal: data FCS sel T teraktivasi).
-3. Microsoft Excel/Google Sheets.
 
 ### **Referensi Tambahan**
 
@@ -138,7 +135,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 
 
 
-## Panduan Teknis Aplikasi Flowjo 
+# Panduan Teknis Aplikasi Flowjo 
 ### Workspace pada Aplikasi FlowJo
 
 ![ ](workspace-flowjo.png)

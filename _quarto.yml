@@ -1,3 +1,4 @@
+
 project:
   type: website
   output-dir: docs
@@ -17,7 +18,7 @@ website:
       - href: "post.qmd"
         text: Courses
         target: posts.qmd   # Opens in a new tab
-      - href: "https://liobisa.com/"
+      - href: "https://liobisa.my.canva.site/"
         text: Community service
         target: _blank  # Opens in a new tab
       - href: "https://imunologigoblog.wordpress.com/"

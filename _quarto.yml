@@ -5,6 +5,8 @@ project:
 website:
   title: "Ibnu Ariyanto"
   navbar:
+    title: false               # hide text title in navbar if you want only logo
+    logo: media/ibn_logo.png       # logo on the left of navbar
     right:
       - text: "About"
         file: index.qmd
@@ -32,4 +34,5 @@ format:
     theme: 
       light: litera
       dark: solar
+    mainfort: "Nunito Sans"    
     css: styles.css

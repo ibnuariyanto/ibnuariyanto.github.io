@@ -1,0 +1,215 @@
+---
+title: "Quantify HRP Staining from Cells with Fiji/ImageJ"
+description: "It is the step by step to quantify cell stained with HRP-DAB of Immunostaing"
+author:
+  - name: Ibnu Ariyanto
+    url: https://ibnuariyanto.github.io/
+    orcid: 0000-0003-0576-0562
+    affiliation: Department of Clinical Microbiology, Faculty of Medicine, Universitas Indonesia
+date: 2025-12-20
+categories: [fiji, imagej, cell-biology, image-analysis, tutorial]
+citation: 
+  url: https://ibnuariyanto.github.io/post/2025-12-20-Fiji-hrp-cellstain/ 
+image: hrp.png
+draft: false
+format:
+  html:
+    toc: true
+    code-fold: true
+    code-tools: true
+---
+
+## Overview
+
+This tutorial demonstrates how to quantify HRP/TMB (brown) staining intensity and positive area in cell images using Fiji/ImageJ's Color Deconvolution plugin. The method separates chromogenic stains by channel splitting and uses threshold-based object identification.
+
+**Expected Duration:** 20–60 minutes (depending on number of images)  
+**Skill Level:** Beginner to Intermediate
+
+## Prerequisites
+
+- Fiji/ImageJ installed ([download here](https://imagej.net/software/fiji/downloads))
+- Fixed/stained cell samples (HRP/TMB or DAB chromogen)
+- Images in TIFF, PNG, or JPEG format
+- Basic microscopy imaging knowledge
+
+## Materials
+
+- Fixed/stained cell samples (HRP/TMB or other brown chromogen)
+- Counterstain (optional; e.g., hematoxylin)
+- Calibration/controls:
+  - Negative control (no primary antibody / no HRP)
+  - Positive control (known HRP+ sample)
+
+## Safety Precautions
+
+⚠️ **Important:**
+
+- Handle biological samples following your lab's biosafety rules
+- Wear appropriate PPE (lab coat, gloves, eye protection)
+- Dispose of chemical waste according to institutional guidelines
+
+## Pre-Procedure Preparation
+
+1. **Standardize image acquisition:** Use same illumination, exposure, magnification, and white balance across all samples
+2. **Export images in TIFF format** (preferred for minimal loss)
+3. **Create folder structure:**
+   - `/images/raw/`
+   - `/images/qc/`
+   - `/output/`
+
+## Step-by-Step Procedure
+
+### Step 1: Open Your Image
+
+Launch Fiji/ImageJ and open your brightfield image (**File → Open**).
+
+### Step 2: Apply Color Deconvolution
+
+1. Go to **Image → Color → Colour Deconvolution**
+2. Select the appropriate stain vector:
+   - For brown DAB staining: choose **H DAB** (Hematoxylin + DAB)
+   - For brown TMB: **H DAB** often works
+   - Alternative: use **User values** for custom vectors
+3. Click OK
+
+Fiji will split your image into three channels:
+- **Colour_1** (typically hematoxylin/blue counterstain)
+- **Colour_2** (DAB/brown stain) ← This is what we need!
+- **Colour_3** (residual/background)
+
+### Step 3: Work with the DAB Channel
+
+1. Select the **Colour_2** window (brown stain channel)
+2. Invert the image if needed (**Edit → Invert**) so stained areas are bright on dark background
+
+### Step 4: Threshold the Brown Stain
+
+1. Go to **Image → Adjust → Threshold**
+2. Adjust sliders to select only brown-stained regions
+3. Use **Default** or **Otsu** auto-threshold as starting point, then refine manually
+4. Click **Apply** to create binary mask
+
+### Step 5: Measure Stained Area
+
+1. Ensure measurements are set: **Analyze → Set Measurements** → select **Area**, **Area fraction**, and **Mean gray value**
+2. Run **Analyze → Measure**
+3. Record the **%Area** (percent stained area) and mean intensity from Results window
+
+## Batch Processing (Optional)
+
+For multiple images, use this ImageJ macro:
+
+```javascript
+// Robust Batch Macro: DAB/TMB (Colour_2) area fraction + mean
+inputDir  = "F:/path/to/input/";
+outputDir = "F:/path/to/output/";
+resultsPath = outputDir + "Results.csv";
+
+File.makeDirectory(outputDir);
+list = getFileList(inputDir);
+
+setBatchMode(true);
+run("Clear Results");
+
+function findTitleContains(substr) {
+	titles = getList("image.titles");
+	for (k = 0; k &lt; titles.length; k++) {
+		if (indexOf(titles[k], substr) &gt;= 0) return titles[k];
+	}
+	return "";
+}
+
+for (i = 0; i &lt; list.length; i++) {
+	name = toLowerCase(list[i]);
+	if (!(endsWith(name, ".jpg") || endsWith(name, ".jpeg") || 
+	      endsWith(name, ".tif") || endsWith(name, ".tiff") || 
+	      endsWith(name, ".png")))
+		continue;
+
+	open(inputDir + list[i]);
+	origTitle = getTitle();
+
+	run("Colour Deconvolution", "vectors=[H DAB]");
+
+	c2 = findTitleContains("Colour_2");
+	if (c2 == "") c2 = findTitleContains("Color_2");
+	if (c2 == "") {
+		selectImage(origTitle); close();
+		run("Close All");
+		continue;
+	}
+
+	titles = getList("image.titles");
+	for (k = 0; k &lt; titles.length; k++) {
+		if (titles[k] != c2) { selectImage(titles[k]); close(); }
+	}
+
+	selectImage(c2);
+	rename("C2_" + origTitle);
+
+	run("Invert");
+	setThreshold(75, 255);
+	run("Convert to Mask");
+
+	run("Set Measurements...", "area mean area_fraction limit redirect=None decimal=4");
+	run("Measure");
+
+	setResult("Image", nResults-1, origTitle);
+
+	saveAs("Tiff", outputDir + origTitle + "_mask.tif");
+	close();
+}
+
+saveAs("Results", resultsPath);
+setBatchMode(false);
+print("Done. Results: " + resultsPath);
+```
+
+**Key features:**
+- Processes all images in input folder automatically
+- Saves binary masks for QC
+- Exports consolidated results to CSV
+- Handles window-title variations robustly
+
+### Step 6: Export Results
+
+1. Save Results table (**File → Save As**) as CSV
+2. Optionally save overlay images (**Image → Overlay → Add Selection** → **File → Save As → TIFF**)
+
+## Quality Control
+
+✓ Visually inspect binary mask overlay on original image  
+✓ Check negative controls yield near-zero %Area  
+✓ Verify consistent threshold settings across batch
+
+## Expected Results
+
+Per-image measurements include:
+- Total image area
+- Stained area (pixels)
+- Percent stained area (%Area)
+- Mean intensity of DAB channel
+
+## Troubleshooting
+
+**Problem:** Brown stain not well separated from background  
+**Solution:** Try custom deconvolution vectors; adjust threshold carefully; apply background subtraction (**Process → Subtract Background**) before deconvolution
+
+**Problem:** Noise/artifacts included in measurements  
+**Solution:** Apply median filter (**Process → Filters → Median**, radius 1–2); use **Analyze → Analyze Particles** with size filters
+
+**Problem:** Inconsistent results across images  
+**Solution:** Standardize image acquisition; use same threshold values; consider illumination correction (**Process → FFT → Bandpass Filter**)
+
+## Tips
+
+- Always validate thresholding on a subset manually for publication
+- For single-cell analysis, combine with **Analyze Particles** or **Watershed** tools
+- Consider **Colour Deconvolution 2** plugin for advanced stain separation
+
+## References
+
+- Ruifrok AC, Johnston DA. "Quantification of histochemical staining by color deconvolution." *Analytical and Quantitative Cytology and Histology*, 2001.
+- [Fiji Color Deconvolution Documentation](https://imagej.net/plugins/colour-deconvolution)
+- Schindelin J, et al. "Fiji: an open-source platform for biological-image analysis." *Nature Methods*, 2012.

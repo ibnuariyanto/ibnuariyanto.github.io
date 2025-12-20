@@ -1,0 +1,19 @@
+/*-- scss:rules --*/
+/* (keep whatever you already have above) */
+
+/* Force Arial globally, including about templates */
+html,
+body,
+main,
+.content,
+.quarto-about-jolla,
+.quarto-about-jolla p,
+.quarto-about-solana,
+.quarto-about-solana p,
+.quarto-about-trestles,
+.quarto-about-trestles p,
+.quarto-about-broadside,
+.quarto-about-broadside p,
+p {
+  font-family: Arial, Helvetica, sans-serif !important;
+}

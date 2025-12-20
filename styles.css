@@ -1,78 +1,15 @@
-/* css styles */
-/* ==========================================
-   Dark theme (clean academic)
-   Works well when _quarto.yml has theme.dark 
-   ========================================== */
+/* Import Nunito Sans */
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap");
 
-/* Base typography (same idea as light) */
-body{
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif;
-  font-size: 16.5px;
-  line-height: 1.75;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+/* Global font */
+html,
+body,
+p {
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", system-ui, sans-serif !important;
 }
 
-h1, h2, h3, h4, h5{
-  font-family: "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-}
-
-/* Narrower reading measure */
-main.content{
-  max-width: 860px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Apply only in dark mode */
-@media (prefers-color-scheme: dark){
-  body{
-    background: #0f1115;
-    color: #e8e8e8;
-  }
-
-  /* Headings */
-  h1, h2, h3, h4, h5{
-    color: #f2f2f2;
-  }
-
-  /* Muted text (subtitle etc.) */
-  .quarto-title-subtitle, .lead, small, .small{
-    color: rgba(232,232,232,0.72) !important;
-  }
-
-  /* Links: subdued “academic blue” for dark */
-  a{
-    color: #8ab4f8;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(138,180,248,0.25);
-  }
-  a:hover{
-    color: #a9c7ff;
-    border-bottom-color: rgba(169,199,255,0.55);
-  }
-
-  /* Horizontal rules */
-  hr{
-    border: none;
-    border-top: 1px solid rgba(255,255,255,0.12);
-  }
-
-  /* Code blocks */
-  pre, code{
-    color: #e8e8e8;
-  }
-  pre{
-    background: #141824;
-    border: 1px solid rgba(255,255,255,0.10);
-    border-radius: 8px;
-    padding: 1rem;
-  }
-
-  /* Optional: images slightly lifted from dark bg */
-  img{
-    background: #0f1115;
-  }
+.navbar-logo {
+  max-height: 70px;   /* adjust as needed */
+  height: auto;
 }

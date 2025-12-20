@@ -32,6 +32,10 @@ We have been investigating CMV IL10 and human IL10R SNPs with Curtin/UWA Researc
 
 I am co-supervisor of Clara Imaniar (master Student of Biomedical Science). The main supervisor is Prof Yeva Rosana (Dept. Microbiology FMUI). Our main goal is to develop a molecular method to identify live M. lepra from clinical samples. (ongoing)
 
+### Non Tuberculosis Mycobacterium Genomic
+
+I am particiapting in the NTM Genomic project with Prof. Anis Karuniawati as PI from Dept. Clinical Microbiology FMUI in collaborating with Osaka University. I have work with nanopore sequencing and bioinformatic analysis. 
+
 ## Finished
 
 ### COINCIDE Project (2024-2025)

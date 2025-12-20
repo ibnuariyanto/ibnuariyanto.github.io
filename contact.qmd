@@ -12,9 +12,7 @@ format: html
   <strong>Ibnu Ariyanto</strong><br>
   Department of Clinical Microbiology<br>
   Faculty of Medicine, Universitas Indonesia<br>
-  Jl. Pegangsaan Timur 16<br>
+  Pegangsaan Timur Street 16th<br>
   Jakarta 10320, Indonesia<br>
   
-<Form>
-<iframe src="https://ariyantoia.notion.site/ebd/1d694d61ed2980d08febd1bd54d45296" width="100%" height="600" frameborder="0" allowfullscreen />
 ---

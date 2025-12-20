@@ -3,7 +3,7 @@ project:
   type: website
   output-dir: docs
 website:
-  title: "Ibnu Ariyanto "
+  title: "Ibnu Ariyanto"
   navbar:
     right:
       - text: "About"

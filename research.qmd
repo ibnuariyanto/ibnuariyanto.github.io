@@ -9,7 +9,7 @@ title: "Research"
 
 Initial development of artificial antigen-presenting cells (aAPC) for Natural killer cell expansion, the acceleration of the first CAR-NK cells in Indonesia
 The project is a collaboration study with Prof. Alex Mc Lellan from the Department of Microbiology and Immunology at Otago University, New Zealand. I have gotten a small grant from DIPI to start the project in the Department of Clinical Microbiology, Faculty of Medicine, Universitas Indonesia. My supervisor from UI is dr. Rina la Distia Nora, Sp.M(K)., PhD & Fithriyah, PhD.
-(https://dipi.id/awarded-proposal-dipis-small-research-grant-2024/). (ongoing)
+**Grant Website:** [https://dipi.id/awarded-proposal-dipis-small-research-grant-2024/](https://dipi.id/awarded-proposal-dipis-small-research-grant-2024/). (ongoing)
 
 ### Immunology of HIV Patients
 
@@ -24,6 +24,7 @@ The collaborative research between Universitas Indonesia and Curtin University o
 The CMV research has been done in HIV patients starting ART, followed by 5 years in the JakCCANDO Study.
 
 Currently working with Biomedical Science UI PhD student Isti Anindya to understand CMV's role in the cognitive development of Autism Spectrum Disorder (ASD) children (the principal investigator was Prof. Amin Subandrio). (ongoing)
+**Project website** [https://www.peduliasd.id/casdi/riset](https://www.peduliasd.id/casdi/riset)
 
 We have been investigating CMV IL10 and human IL10R SNPs with Curtin/UWA Researcher Shelley Waters. The research also part of the Master Research of Yudha Fariska (master Student of Biomedical Science) (ongoing)
 

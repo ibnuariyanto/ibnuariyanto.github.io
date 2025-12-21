@@ -1,0 +1,14 @@
+---
+title: "Prevalence of Cytomegalovirus Infection among Children with and with out Autism in Jakarta, Indonesia"
+date: 2024-01-01
+author: ["Anindya I", "Ariyanto IA", "Soebandrio A"]
+publication: "Hosts Viruses, 11:94–100 (2024)"
+categories: []
+url_source: "[https://dx.doi.org/10.17582/journal.hv/2024/11.94.100](https://dx.doi.org/10.17582/journal.hv/2024/11.94.100)"
+url_preprint: ""
+journ: "Hosts Viruses"
+issue: "11"
+page: "94-100"
+year: 2024
+pub_number: 24
+---

@@ -1,0 +1,14 @@
+---
+title: "Polymorphisms in CAMKK2 associate with susceptibility to sensory neuropathy in HIV patients treated without stavudine"
+date: 2019-01-01
+author: ["Gaff J", "Octaviana F", "Ariyanto I", "Cherry C", "Laws SM", "Price P"]
+publication: "J Neurovirol, 25(6):814–824 (2019)"
+categories: []
+url_source: "[https://link.springer.com/article/10.1007/s13365-019-00771-w](https://link.springer.com/article/10.1007/s13365-019-00771-w)"
+url_preprint: ""
+journ: "Journal of NeuroVirology"
+issue: "25(6)"
+page: "814-824"
+year: 2019
+pub_number: 8
+---

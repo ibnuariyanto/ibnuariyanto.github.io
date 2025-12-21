@@ -1,0 +1,14 @@
+---
+title: "Polymorphisms in IL10 may alter CD4 T-cell counts in Indonesian HIV patients beginning antiretroviral therapy"
+date: 2017-01-01
+author: ["Dmello", "Ibnu Ariyanto", "Fitri Octaviana", "Silvia Lee", "Patricia Price"]
+publication: "Human Immunology, 78, 387-390 (2017)."
+categories: ["HIV", "Immunology", "CD4", "T-cell"]
+url_source: "[https://doi.org/10.1016/j.humimm.2017.02.005](https://doi.org/10.1016/j.humimm.2017.02.005)"
+url_preprint: ""
+journ: "Human Immunology"
+issue: 78
+page: "387-390"
+year: 2017
+pub_number: 1
+---

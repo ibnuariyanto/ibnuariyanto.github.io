@@ -1,0 +1,14 @@
+---
+title: "Levels of Cytomegalovirus-reactive antibody and γδ T cell phenotypes align with vascular changes in people living with HIV"
+date: 2025-01-01
+author: ["Ariyanto IA", "Wijaya IP", "Karim B", "Lee S", "Price P"]
+publication: "Viral Immunol, 38(1):34–38 (2025)"
+categories: []
+url_source: "[https://www.liebertpub.com/doi/10.1089/vim.2024.0075](https://www.liebertpub.com/doi/10.1089/vim.2024.0075)"
+url_preprint: ""
+journ: "Viral Immunology"
+issue: "38(1)"
+page: "34-38"
+year: 2025
+pub_number: 28
+---

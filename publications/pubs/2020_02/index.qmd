@@ -1,0 +1,14 @@
+---
+title: "Determinants of cognitive health in Indonesian HIV patients beginning antiretroviral therapy"
+date: 2020-01-01
+author: ["Estiasari R", "Aryanto I", "Lee S", "Pramana S", "Djauzi S", "Price P"]
+publication: "J Neurovirol, 26(1):32–40 (2020)"
+categories: []
+url_source: "[https://link.springer.com/article/10.1007/s13365-019-00787-2](https://link.springer.com/article/10.1007/s13365-019-00787-2)"
+url_preprint: ""
+journ: "Journal of NeuroVirology"
+issue: "26(1)"
+page: "32-40"
+year: 2020
+pub_number: 10
+---

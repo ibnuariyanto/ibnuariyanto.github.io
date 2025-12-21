@@ -1,0 +1,14 @@
+---
+title: "Do variations in the HLA-E ligand encoded by UL40 distinguish individuals susceptible to HCMV disease?"
+date: 2023-01-01
+author: ["Waters S", "Allcock RJN", "Lee S", "Downing J", "Ariyanto I", "Leary S", "et al."]
+publication: "Hum Immunol, 84(2):75–79 (2023)"
+categories: []
+url_source: "[http://dx.doi.org/10.1016/j.humimm.2022.11.005](http://dx.doi.org/10.1016/j.humimm.2022.11.005)"
+url_preprint: ""
+journ: "Human Immunology"
+issue: "84(2)"
+page: "75-79"
+year: 2023
+pub_number: 23
+---

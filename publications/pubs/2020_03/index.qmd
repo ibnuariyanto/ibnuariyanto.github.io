@@ -1,0 +1,14 @@
+---
+title: "Differentiation ability of rat‐mesenchymal stem cells from bone marrow and adipose tissue to neurons and glial cells"
+date: 2020-01-01
+author: ["Noviantari A", "Rinendyaputri R", "Ariyanto I"]
+publication: "Indones J Biotechnol, 25(1):43 (2020)"
+categories: []
+url_source: "[https://jurnal.ugm.ac.id/ijbiotech/article/view/42511](https://jurnal.ugm.ac.id/ijbiotech/article/view/42511)"
+url_preprint: ""
+journ: "Indonesian Journal of Biotechnology"
+issue: "25(1)"
+page: "43"
+year: 2020
+pub_number: 11
+---

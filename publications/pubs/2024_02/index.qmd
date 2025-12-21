@@ -1,0 +1,14 @@
+---
+title: "SARS-CoV-2 multi-epitope subunit vaccine proof-of-concept derived from the insilico study with protein expression in Escherichia coli BL21"
+date: 2024-01-01
+author: ["Muhayya SR", "Ariyanto IA", "Widianingtyas S", "Subiantistha T", "Bela B", "et al."]
+publication: "Pharm J Indones, 9(2):71–78 (2024)"
+categories: []
+url_source: "[https://doi.org/10.21776/ub.pji.2024.009.02.1](https://doi.org/10.21776/ub.pji.2024.009.02.1)"
+url_preprint: ""
+journ: "Pharm J Indones"
+issue: "9(2)"
+page: "71-78"
+year: 2024
+pub_number: 25
+---

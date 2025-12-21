@@ -1,0 +1,14 @@
+---
+title: "Which NK cell populations mark the high burden of CMV present in all HIV patients beginning ART in Indonesia?"
+date: 2022-01-01
+author: ["Ariyanto IA", "Estiasari R", "Karim B", "Wijaya IP", "Bela B", "Soebandrio A", "et al."]
+publication: "AIDS Res Ther, 19(1):16 (2022)"
+categories: []
+url_source: "[http://dx.doi.org/10.1186/s12981-022-00439-2](http://dx.doi.org/10.1186/s12981-022-00439-2)"
+url_preprint: ""
+journ: "AIDS Research and Therapy"
+issue: "19(1)"
+page: "16"
+year: 2022
+pub_number: 18
+---

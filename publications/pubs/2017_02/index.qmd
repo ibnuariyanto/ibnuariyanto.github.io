@@ -1,0 +1,15 @@
+---
+title: "Factors affecting affect cardiovascular health in Indonesian HIV patients beginning ART"
+date: 2017-08-31
+author: ["Karim B", "Wijaya IP", "Rahmaniyah R", "Ariyanto I", "Waters S", "Estiasari R", "et al."]
+publication: "AIDS Res Ther, 14(1):52 (2017)"
+categories: []
+url_source: "[https://scholar.google.com/citations?view_op=view_citation&hl=en&citation_for_view=X_K_5ewAAAAJ:2osOgNQ5qMEC](https://scholar.google.com/citations?view_op=view_citation&hl=en&citation_for_view=X_K_5ewAAAAJ:2osOgNQ5qMEC)"
+url_preprint: ""
+journ: "AIDS Research and Therapy"
+issue: "14(1)"
+page: "52"
+year: 2017
+pub_number: 2
+---
+

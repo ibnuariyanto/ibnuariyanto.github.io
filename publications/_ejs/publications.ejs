@@ -1,0 +1,35 @@
+<% for (const item of items) { %>
+
+::: {.publication-item}
+
+::: {.pub-meta}
+<% if (item.pub_number) { %>
+<span class="pub-number"><%= item.pub_number %></span>
+<% } %>
+
+<% if (item.url_source) { %>
+[Journal URL](<%= item.url_source %>){.pub-link target="_blank"}
+<% } %>
+:::
+
+::: {.pub-content}
+### <% if (item.url_source) { %>[<%= item.title %>](<%= item.url_source %>){target="_blank"}<% } else { %><%= item.title %><% } %> {.pub-title}
+
+<% if (item.author) { %>
+<span class="pub-authors"><%= item.author %></span>
+<% } %>
+
+<% if (item.publication) { %>
+<span class="pub-venue"><%= item.publication %></span>
+<% } %>
+:::
+
+::: {.pub-figure}
+<% if (item.image) { %>
+![](<%= item.image %>){.pub-thumb fig-alt="<%= item.title %>"}
+<% } %>
+:::
+
+:::
+
+<% } %>

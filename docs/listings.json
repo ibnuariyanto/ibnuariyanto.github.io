@@ -1,5 +1,39 @@
 [
   {
+    "listing": "/publications/index.html",
+    "items": [
+      "/publications/pubs/2025_03/index.html",
+      "/publications/pubs/2025_02/index.html",
+      "/publications/pubs/2025_01/index.html",
+      "/publications/pubs/2024_04/index.html",
+      "/publications/pubs/2024_03/index.html",
+      "/publications/pubs/2024_02/index.html",
+      "/publications/pubs/2024_01/index.html",
+      "/publications/pubs/2023_01/index.html",
+      "/publications/pubs/2022_05/index.html",
+      "/publications/pubs/2022_04/index.html",
+      "/publications/pubs/2022_03/index.html",
+      "/publications/pubs/2022_02/index.html",
+      "/publications/pubs/2022_01/index.html",
+      "/publications/pubs/2021_04/index.html",
+      "/publications/pubs/2021_03/index.html",
+      "/publications/pubs/2021_02/index.html",
+      "/publications/pubs/2021_01/index.html",
+      "/publications/pubs/2020_04/index.html",
+      "/publications/pubs/2020_03/index.html",
+      "/publications/pubs/2020_02/index.html",
+      "/publications/pubs/2020_01/index.html",
+      "/publications/pubs/2019_03/index.html",
+      "/publications/pubs/2019_02/index.html",
+      "/publications/pubs/2019_01/index.html",
+      "/publications/pubs/2018_03/index.html",
+      "/publications/pubs/2018_02/index.html",
+      "/publications/pubs/2017_02/index.html",
+      "/publications/pubs/2018_01/index.html",
+      "/publications/pubs/2017_01/index.html"
+    ]
+  },
+  {
     "listing": "/post.html",
     "items": [
       "/post/2025-12-20-Fiji-hrp-cellstain/index.html",

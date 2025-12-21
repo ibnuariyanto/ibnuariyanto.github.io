@@ -1,0 +1,14 @@
+---
+title: "Active and persistent Cytomegalovirus infections affect T cells in young adult HIV patients commencing antiretroviral therapy"
+date: 2018-01-01
+author: ["Ariyanto IA", "Estiasari R", "Waters S", "Wulandari EAT", "Fernandez S", "Lee S", "et al."]
+publication: "Viral Immunol, 31(6):472–479 (2018)"
+categories: []
+url_source: "[https://www.liebertpub.com/doi/10.1089/vim.2018.0014](https://www.liebertpub.com/doi/10.1089/vim.2018.0014)"
+url_preprint: ""
+journ: "Viral Immunology"
+issue: "31(6)"
+page: "472-479"
+year: 2018
+pub_number: 6
+---

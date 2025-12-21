@@ -1,0 +1,14 @@
+---
+title: "Cassia alata butanol fraction anti-inflammatory effect on early expression of NFκB and cytokines in DENV-1 infected PBMCs"
+date: 2024-01-01
+author: ["Kartika AAA", "Dewi BE", "Ariyanto IA", "Sudiro TM"]
+publication: "J Appl Pharm Sci (2024)"
+categories: []
+url_source: "[https://scholar.google.com/citations?view_op=view_citation&hl=en&citation_for_view=X_K_5ewAAAAJ:JV2RwH3_ST0C](https://scholar.google.com/citations?view_op=view_citation&hl=en&citation_for_view=X_K_5ewAAAAJ:JV2RwH3_ST0C)"
+url_preprint: ""
+journ: "J Appl Pharm Sci"
+issue: ""
+page: ""
+year: 2025
+pub_number: 29
+---

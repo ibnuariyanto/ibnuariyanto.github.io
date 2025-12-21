@@ -1,0 +1,15 @@
+---
+title: "Ex-vivo expression of chemokine receptors on cells surrounding cutaneous nerves in patients with HIV-associated sensory neuropathy"
+date: 2018-01-01
+author: ["Fitri Octaviana", "Ibnu Ariyanto", "Jessica Gaff", "Silvia Lee", "Patricia Price"]
+publication: "AIDS, 32, 431-441 (2018)."
+categories: ["HIV", "Neuropathy"]
+url_source: "https://doi.org/10.1097/QAD.0000000000001716"
+url_preprint:
+journ: "AIDS"
+issue: 32
+page: 431-441
+year: 2018
+pub_number: 4
+---
+

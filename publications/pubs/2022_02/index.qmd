@@ -1,0 +1,14 @@
+---
+title: "Sequencing of the viral UL111a gene directly from clinical specimens reveals variants of HCMV-encoded IL-10 that are associated with altered immune responses to HCMV"
+date: 2022-01-01
+author: ["Waters S", "Lee S", "Ariyanto I", "Kresoje N", "Leary S", "Munyard K", "et al."]
+publication: "Int J Mol Sci, 23(9):4644 (2022)"
+categories: []
+url_source: "[http://dx.doi.org/10.3390/ijms23094644](http://dx.doi.org/10.3390/ijms23094644)"
+url_preprint: ""
+journ: "International Journal of Molecular Sciences"
+issue: "23(9)"
+page: "4644"
+year: 2022
+pub_number: 19
+---

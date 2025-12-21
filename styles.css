@@ -13,3 +13,88 @@ p {
   max-height: 70px;   /* adjust as needed */
   height: auto;
 }
+
+/* Publications layout (Masiello-style) */
+.publication-item {
+  display: grid;
+  grid-template-columns: 90px 1fr 260px;
+  column-gap: 2rem;
+  row-gap: 0.5rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid #eaeaea;
+  align-items: start;
+}
+
+.pub-meta {
+  color: #777;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.pub-meta .pub-number {
+  display: block;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 0.35rem;
+}
+
+.pub-meta .pub-link {
+  font-size: 0.9rem;
+}
+
+.pub-content .pub-title {
+  margin: 0 0 0.35rem 0;
+  font-size: 1.1rem;
+  line-height: 1.35;
+}
+
+.pub-content .pub-title a {
+  color: #1f2d3d;
+  text-decoration: none;
+}
+
+.pub-content .pub-title a:hover {
+  text-decoration: underline;
+}
+
+.pub-authors {
+  display: block;
+  color: #666;
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+.pub-venue {
+  display: block;
+  color: #888;
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.pub-figure {
+  justify-self: end;
+}
+
+.pub-figure img,
+.pub-figure > p > img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px) {
+  .publication-item {
+    grid-template-columns: 1fr;
+  }
+  .pub-figure {
+    justify-self: start;
+  }
+  .pub-figure img,
+  .pub-figure > p > img {
+    max-width: 320px;
+  }
+}

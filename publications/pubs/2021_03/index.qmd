@@ -1,0 +1,14 @@
+---
+title: "Interleukin-1A may illuminate differential effects of the retinal artery caliber in HIV patients"
+date: 2021-01-01
+author: ["Edwar L", "Ariyanto IA", "Tanudjaja SA", "Sitompul R", "Lee S", "Price P"]
+publication: "Mol Cell Biomed Sci, 5(2):88 (2021)"
+categories: []
+url_source: "[https://cellbiopharm.com/ojs/index.php/MCBS/article/view/197](https://cellbiopharm.com/ojs/index.php/MCBS/article/view/197)"
+url_preprint: ""
+journ: "Mol Cell Biomed Sci"
+issue: "5(2)"
+page: "88"
+year: 2021
+pub_number: 15
+---

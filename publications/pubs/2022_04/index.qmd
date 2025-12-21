@@ -1,0 +1,14 @@
+---
+title: "Variants of HCMV UL18 sequenced directly from clinical specimens associate with antibody and T-cell responses to HCMV"
+date: 2022-01-01
+author: ["Waters S", "Lee S", "Ariyanto I", "Leary S", "Munyard K", "Gaudieri S", "et al."]
+publication: "Int J Mol Sci, 23(21):12911 (2022)"
+categories: []
+url_source: "[http://dx.doi.org/10.3390/ijms232112911](http://dx.doi.org/10.3390/ijms232112911)"
+url_preprint: ""
+journ: "International Journal of Molecular Sciences"
+issue: "23(21)"
+page: "12911"
+year: 2022
+pub_number: 21
+---

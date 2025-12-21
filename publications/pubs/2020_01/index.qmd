@@ -1,0 +1,14 @@
+---
+title: "TNF-block genotypes influence susceptibility to HIV-associated sensory neuropathy in Indonesians and South Africans"
+date: 2020-01-01
+author: ["Gaff J", "Octaviana F", "Pillay P", "Mbenda HGN", "Ariyanto IA", "Gan JA", "et al."]
+publication: "Int J Mol Sci, 21(2):380 (2020)"
+categories: []
+url_source: "[https://www.mdpi.com/1422-0067/21/2/380](https://www.mdpi.com/1422-0067/21/2/380)"
+url_preprint: ""
+journ: "International Journal of Molecular Sciences"
+issue: "21(2)"
+page: "380"
+year: 2020
+pub_number: 9
+---

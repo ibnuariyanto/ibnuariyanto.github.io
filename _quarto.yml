@@ -12,8 +12,10 @@ website:
         file: index.qmd
       - text: "Research"
         file: research.qmd
+      - text: "Publications"
+        file: publications/index.qmd
       - href: "https://scholar.google.com/citations?user=X_K_5ewAAAAJ&hl=id&oi=ao"
-        text: Publications
+        text: Google Scolar
         target: _blank  # Opens in a new tab
       - href: "post.qmd"
         text: The notebook

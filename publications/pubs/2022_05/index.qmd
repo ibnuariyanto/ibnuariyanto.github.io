@@ -1,0 +1,14 @@
+---
+title: "Challenges for Legionella pneumophila detection in Indonesia"
+date: 2022-01-01
+author: ["Rahmawaty RG", "Aziz MH", "Dachwan C", "Sari EY", "Ariyanto IA", "Wahid M"]
+publication: "JCMID, 2(2):44–46 (2022)"
+categories: []
+url_source: "[https://www.jcmid.id/index.php/JCMID/article/view/35](https://www.jcmid.id/index.php/JCMID/article/view/35)"
+url_preprint: ""
+journ: "JCMID"
+issue: "2(2)"
+page: "44-46"
+year: 2022
+pub_number: 22
+---

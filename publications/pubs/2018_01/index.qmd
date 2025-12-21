@@ -1,0 +1,15 @@
+---
+title: "HIV patients, healthy aging and transplant recipients can reveal the hidden footprints of CMV"
+date: 2018-01-01
+author: ["Patricia Price", "Silvia Lee", "Ibnu Ariyanto"]
+publication: "Clinical Immunology, **187**, *107-112* (2018)."
+categories: ["HIV","CMV"]
+url_source: "https://doi.org/10.1016/j.clim.2017.11.002"
+url_preprint:
+journ: "Clinical Immunology"
+issue: 187
+page: 107-112
+year: 2018
+pub_number: 3
+---
+

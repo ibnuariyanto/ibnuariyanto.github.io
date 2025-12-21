@@ -1,0 +1,14 @@
+---
+title: "A TNF block genotype may influence CMV retinitis in HIV patients without affecting systemic viral replication"
+date: 2021-01-02
+author: ["Edwar L", "Ha P", "Ariyanto IA", "Estiasari R", "Sitompul R", "Lee S", "et al."]
+publication: "Curr HIV Res, 19(1):96–99 (2021)"
+categories: []
+url_source: "[http://dx.doi.org/10.2174/1570162X18666200910151050](http://dx.doi.org/10.2174/1570162X18666200910151050)"
+url_preprint: ""
+journ: "Curr HIV Res"
+issue: "19(1)"
+page: "96-99"
+year: 2021
+pub_number: 13
+---

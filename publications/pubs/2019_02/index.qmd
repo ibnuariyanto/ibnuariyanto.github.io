@@ -4,7 +4,7 @@ date: 2019-01-01
 author: ["Edwar L", "Karim B", "Wijaya IP", "Ariyanto I", "Tanudjaja SA", "Estiasari R", "et al."]
 publication: "AIDS Res Hum Retroviruses, 35(6):529–535 (2019)"
 categories: []
-url_source: "https://www.liebertpub.com/doi/10.1089/AID.2018.0251?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed](hhttps://www.liebertpub.com/doi/10.1089/AID.2018.0251?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed)"
+url_source: "https://www.liebertpub.com/doi/10.1089/AID.2018.0251?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed"
 url_preprint: ""
 journ: "AIDS Research and Human Retroviruses"
 issue: "35(6)"

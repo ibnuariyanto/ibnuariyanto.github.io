@@ -4,7 +4,7 @@ date: 2018-01-01
 author: ["Ariyanto IA", "Estiasari R", "Waters S", "Wulandari EAT", "Fernandez S", "Lee S", "et al."]
 publication: "Viral Immunol, 31(6):472–479 (2018)"
 categories: []
-url_source: "[https://scholar.google.com/citations?view_op=view_citation&hl=en&citation_for_view=X_K_5ewAAAAJ:Tyk-4Ss8FVUC](https://scholar.google.com/citations?view_op=view_citation&hl=en&citation_for_view=X_K_5ewAAAAJ:Tyk-4Ss8FVUC)"
+url_source: "https://www.liebertpub.com/doi/10.1089/vim.2018.0014"
 url_preprint: ""
 journ: "Viral Immunology"
 issue: "31(6)"

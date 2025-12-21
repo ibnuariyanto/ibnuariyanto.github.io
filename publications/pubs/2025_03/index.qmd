@@ -4,7 +4,7 @@ date: 2025-01-01
 author: ["Anindya I", "Sekartini R", "Ariyanto IA", "Wiguna T", "Sari NP", "Rahayu YS", "et al."]
 publication: "Biomedicines, 13(2):338 (2025)"
 categories: []
-url_source: "[https://www.mdpi.com/2227-9059/13/2/338](https://www.mdpi.com/2227-9059/13/2/338)"
+url_source: "https://www.mdpi.com/2227-9059/13/2/338"
 url_preprint: ""
 journ: "Biomedicines"
 issue: "13(2)"

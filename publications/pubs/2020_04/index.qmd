@@ -4,7 +4,7 @@ date: 2020-01-01
 author: ["Wulandari EAT", "Wijaya IP", "Karim B", "Ariyanto I", "Tanudjaja SA", "Lee S", "et al."]
 publication: "J Acquir Immune Defic Syndr, 85(2):195–200 (2020)"
 categories: []
-url_source: "[doi.org/10.1097/QAI.0000000000002417](doi.org/10.1097/QAI.0000000000002417)"
+url_source: "doi.org/10.1097/QAI.0000000000002417"
 url_preprint: ""
 journ: "J Acquir Immune Defic Syndr"
 issue: "85(2)"

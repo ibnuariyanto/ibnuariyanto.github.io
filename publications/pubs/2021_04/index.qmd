@@ -4,7 +4,7 @@ date: 2021-01-01
 author: ["Waters S", "Agostino M", "Lee S", "Ariyanto I", "Kresoje N", "Leary S", "et al."]
 publication: "Microbiol Spectr, 9(2):e0002021 (2021)"
 categories: []
-url_source: "[http://dx.doi.org/10.1128/Spectrum.00020-21](http://dx.doi.org/10.1128/Spectrum.00020-21)"
+url_source: "http://dx.doi.org/10.1128/Spectrum.00020-21"
 url_preprint: ""
 journ: "Microbiology Spectrum"
 issue: "9(2)"

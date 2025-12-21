@@ -4,7 +4,7 @@ date: 2024-01-01
 author: ["Kartika AAA", "Dewi BE", "Ariyanto IA", "Sudiro TM"]
 publication: "J Appl Pharm Sci (2024)"
 categories: []
-url_source: "[https://scholar.google.com/citations?view_op=view_citation&hl=en&citation_for_view=X_K_5ewAAAAJ:JV2RwH3_ST0C](https://scholar.google.com/citations?view_op=view_citation&hl=en&citation_for_view=X_K_5ewAAAAJ:JV2RwH3_ST0C)"
+url_source: "https://japsonline.com/abstract.php?article_id=4469&sts=2"
 url_preprint: ""
 journ: "J Appl Pharm Sci"
 issue: ""

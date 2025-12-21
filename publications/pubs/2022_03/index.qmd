@@ -4,7 +4,7 @@ date: 2022-01-01
 author: ["Ariyanto IA", "Estiasari R", "Lee S", "Price P"]
 publication: "AIDS Res Hum Retroviruses, 38(9):764–770 (2022)"
 categories: []
-url_source: "[http://dx.doi.org/10.1089/AID.2021.0171](http://dx.doi.org/10.1089/AID.2021.0171)"
+url_source: "http://dx.doi.org/10.1089/AID.2021.0171"
 url_preprint: ""
 journ: "AIDS Research and Human Retroviruses"
 issue: "38(9)"

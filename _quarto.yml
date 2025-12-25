@@ -35,6 +35,5 @@ format:
   html:
     theme: 
       light: litera
-      dark: solar
     mainfort: "Nunito Sans"    
     css: styles.css

@@ -9,3 +9,5 @@
 .quarto
 .nojekyll.
 _quarto.yml
+
+**/*.quarto_ipynb

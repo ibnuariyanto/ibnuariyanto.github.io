@@ -13,11 +13,8 @@ website:
         file: research.qmd
       - text: "Publications"
         file: publications/index.qmd
-      - href: "https://scholar.google.com/citations?user=X_K_5ewAAAAJ&hl=id&oi=ao"
-        text: Google Scholar
-        target: _blank  # Opens in a new tab
       - href: "post.qmd"
-        text: The notebook
+        text: Class notes
         target: posts.qmd   # Opens in a new tab
       - href: "https://liobisa.my.canva.site/"
         text: Community service

@@ -186,21 +186,21 @@
     "href": "index.html",
     "title": "About",
     "section": "",
-    "text": "LinkedIn\n  \n  \n    \n     GitHub\n  \n  \n    \n     ORCID\n  \n  \n    \n     Sinta\n  \n  \n    \n     Email\n  \n\n  \n  \nIbnu Ariyanto is a lecturer and researcher at Universitas Indonesia. Since March 2023, he has worked as a lecturer and researcher at the Master Program of Biomedical Science, Faculty of Medicine, Universitas Indonesia, in Jakarta. (Department of Microbiology, FM UI).\n\nHe became interested in infectious immunology studies. He is presently concentrating his study on cellular immunity to viral infections such as HIV and CMV. He is eager to learn more about cellular therapy and future infectious disease treatment options.\n\nHe is presently employed with UKK PPM LMK (Lab services) as part of the Microbiology Department. In January 2025, he was named the Person in Charge of the Serology Division while simultaneously expanding Genomic Research and Services within the Molecular and Virology Divisions.\n\n\nDoctor of Biomedical Science Universitas Indonesia\nMaster of Biomedical Science Universitas Indonesia\nBachelor Degree of Universitas Gadjah Mada\n\n\n\nDepartment of Clinical Microbiology, Faculty of Medicine, Universitas Indonesia"
+    "text": "LinkedIn\n  \n  \n    \n     GitHub\n  \n  \n    \n     ORCID\n  \n  \n    \n     Sinta\n  \n  \n    \n     Email\n  \n\n  \n  \nIbnu Ariyanto is a lecturer and researcher in biomedical science and clinical microbiology at Universitas Indonesia. His work focuses on infectious immunology, particularly cellular immune responses to viral infections such as HIV and CMV. He is also involved in laboratory services, serology, molecular diagnostics, virology, and genomic research development at the Faculty of Medicine, Universitas Indonesia.\n\n\nDoctor of Biomedical Science, Universitas Indonesia\nMaster of Biomedical Science, Universitas Indonesia\nBachelor’s Degree, Universitas Gadjah Mada\n\n\n\nLecturer and researcher, Master Program of Biomedical Science, Faculty of Medicine, Universitas Indonesia\nMember of the Department of Clinical Microbiology, FMUI\nPerson in Charge, Serology Division\nContributor to genomic research and services in Molecular and Virology Divisions\nLaboratory services contributor, UKK PPM LMK\n\n\n\nCellular immunity in viral infections\nHIV and CMV immunology\nInfectious immunology\nSerology and molecular diagnostics\nGenomic research and laboratory service development\nFuture applications of cellular therapy in infectious disease treatment\n\n\n\nDepartment of Microbiology, Faculty of Medicine, Universitas Indonesia"
   },
   {
     "objectID": "index.html#education",
     "href": "index.html#education",
     "title": "About",
     "section": "",
-    "text": "Doctor of Biomedical Science Universitas Indonesia\nMaster of Biomedical Science Universitas Indonesia\nBachelor Degree of Universitas Gadjah Mada"
+    "text": "Doctor of Biomedical Science, Universitas Indonesia\nMaster of Biomedical Science, Universitas Indonesia\nBachelor’s Degree, Universitas Gadjah Mada"
   },
   {
     "objectID": "index.html#laboratory",
     "href": "index.html#laboratory",
     "title": "About",
     "section": "",
-    "text": "Department of Clinical Microbiology, Faculty of Medicine, Universitas Indonesia"
+    "text": "Department of Microbiology, Faculty of Medicine, Universitas Indonesia"
   },
   {
     "objectID": "post/2025-06-14-Analisis-genom-sars-cov-2/index.html",
@@ -285,5 +285,47 @@
     "title": "The notebook",
     "section": "",
     "text": "Quantify HRP Staining from Cells with Fiji/ImageJ\n\n\n\nfiji\n\nimagej\n\ncell-biology\n\nimage-analysis\n\ntutorial\n\n\n\nIt is the step by step to quantify cell stained with HRP-DAB of Immunostaing\n\n\n\nIbnu Ariyanto\n\n\nDec 20, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nFlow cytometry analysis of NK cell in Bahasa\n\n\n\nFlow Cytometry\n\nFlowJo\n\n\n\nAnalisis Flow Cytometry Sel Natural Killer\n\n\n\nIbnu Ariyanto\n\n\nJun 23, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nSimple guide: application of AI for literature search in Bahasa\n\n\n\nOpen source\n\nOllama\n\nAI\n\n\n\nPanduan Instalasi perplexica: alternatif versi open-source untuk perplexity\n\n\n\nIbnu Ariyanto\n\n\nJun 23, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nPraktikum Teknik Pemeriksaan Virus: Analisis data sekuensing virus SARS-CoV-2\n\n\n\nGenomic\n\nBioinformatics\n\nSARS-CoV-2\n\n\n\nAnalisis Genom Virus SARS-CoV-2: Panduan Analisis Data Sekuensing .fastq hingga anotasi genom virus\n\n\n\nIbnu Ariyanto\n\n\nJun 16, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nFlow Cytometry Workshop in Bahasa\n\n\n\nFlow Cytometry\n\nFlowJo\n\n\n\nFlowJo untuk Analisis Imunaktivasi Sel T: Instalasi, Gating, dan Analisis Lanjutan\n\n\n\nIbnu Ariyanto\n\n\nMay 20, 2025\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#current-roles",
+    "href": "index.html#current-roles",
+    "title": "About",
+    "section": "",
+    "text": "Lecturer and researcher, Master Program of Biomedical Science, Faculty of Medicine, Universitas Indonesia\nMember of the Department of Clinical Microbiology, FMUI\nPerson in Charge, Serology Division\nContributor to genomic research and services in Molecular and Virology Divisions\nLaboratory services contributor, UKK PPM LMK"
+  },
+  {
+    "objectID": "index.html#research-interest",
+    "href": "index.html#research-interest",
+    "title": "About",
+    "section": "",
+    "text": "Cellular immunity in viral infections\nHIV and CMV immunology\nInfectious immunology\nSerology and molecular diagnostics\nGenomic research and laboratory service development\nFuture applications of cellular therapy in infectious disease treatment"
+  },
+  {
+    "objectID": "index.html#ibnu-ariyanto",
+    "href": "index.html#ibnu-ariyanto",
+    "title": "About",
+    "section": "",
+    "text": "Lecturer and Researcher\nDepartment of Microbiology\nFaculty of Medicine, Universitas Indonesia\nResearch focus: infectious immunology, HIV, CMV, cellular immunity"
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "Cellular immunity in viral infections\nHIV and CMV immunology\nInfectious immunology\nSerology and molecular diagnostics\nGenomic research and laboratory service development\nFuture applications of cellular therapy in infectious disease treatment"
+  },
+  {
+    "objectID": "research.html#research-interest",
+    "href": "research.html#research-interest",
+    "title": "Research",
+    "section": "",
+    "text": "Cellular immunity in viral infections\nHIV and CMV immunology\nInfectious immunology\nSerology and molecular diagnostics\nGenomic research and laboratory service development\nFuture applications of cellular therapy in infectious disease treatment"
+  },
+  {
+    "objectID": "research.html#research-projects",
+    "href": "research.html#research-projects",
+    "title": "Research",
+    "section": "Research Projects",
+    "text": "Research Projects"
   }
 ]

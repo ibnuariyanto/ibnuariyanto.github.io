@@ -26,21 +26,30 @@ about:
 ---
 
 ::: {#hero-heading}
-Ibnu Ariyanto is a lecturer and researcher at Universitas Indonesia. Since March 2023, he has worked as a lecturer and researcher at the Master Program of Biomedical Science, Faculty of Medicine, Universitas Indonesia, in Jakarta. (Department of Microbiology, FM UI).\
-\
-He became interested in infectious immunology studies. He is presently concentrating his study on cellular immunity to viral infections such as HIV and CMV. He is eager to learn more about cellular therapy and future infectious disease treatment options.\
-\
-He is presently employed with UKK PPM LMK (Lab services) as part of the Microbiology Department. In January 2025, he was named the Person in Charge of the Serology Division while simultaneously expanding Genomic Research and Services within the Molecular and Virology Divisions.
+Ibnu Ariyanto is a lecturer and researcher in biomedical science and clinical microbiology at Universitas Indonesia. His work focuses on infectious immunology, particularly cellular immune responses to viral infections such as HIV and CMV. He is also involved in laboratory services, serology, molecular diagnostics, virology, and genomic research development at the Faculty of Medicine, Universitas Indonesia.
+
 
 ## Education
 
-Doctor of Biomedical Science Universitas Indonesia
+Doctor of Biomedical Science, Universitas Indonesia
 
-Master of Biomedical Science Universitas Indonesia
+Master of Biomedical Science, Universitas Indonesia
 
-Bachelor Degree of Universitas Gadjah Mada
+Bachelor’s Degree, Universitas Gadjah Mada
+
+## Current Roles
+Lecturer and researcher, Master Program of Biomedical Science, Faculty of Medicine, Universitas Indonesia
+
+Member of the Department of Clinical Microbiology, FMUI
+
+Person in Charge, Serology Division
+
+Contributor to genomic research and services in Molecular and Virology Divisions
+
+Laboratory services contributor, UKK PPM LMK
+
 
 ## Laboratory
 
-Department of Clinical Microbiology, Faculty of Medicine, Universitas Indonesia
+Department of Microbiology, Faculty of Medicine, Universitas Indonesia
 :::
